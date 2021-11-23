@@ -1,4 +1,4 @@
-ISO3,Countries and areas,Region,Sub-region,Development Regions,Total,Female,Male,Rural_Residence,Urban_Residence,Poorest_Wealth quintile,Second_Wealth quintile,Middle_Wealth quintile,Fourth_Wealth quintile,Richest_Wealth quintile,Data source,Time period,Level
+ISO3,Country,Region,Sub-region,DevelopmentRegion,Total,Female,Male,RuralResidence,UrbanResidence,PoorestWealthQuintile,SecondWealthQuintile,MiddleWealthQuintile,FourthWealthQuintile,RichestWealthQuintile,DataSource,TimePeriod,Level
 AFG,Afghanistan,SA,SA,Least Developed,37.0,47.0,28.0,42.0,19.0,42.0,47.0,46.0,32.0,16.0,DHS 2015,2015.0,PR
 BGD,Bangladesh,SA,SA,Least Developed,6.0,5.0,8.0,6.0,6.0,9.0,7.0,5.0,6.0,4.0,MICS 2019,2019.0,PR
 BTN,Bhutan,SA,SA,Least Developed,8.0,7.0,9.0,10.0,3.0,15.0,11.0,6.0,4.0,3.0,MICS 2010,2010.0,PR
