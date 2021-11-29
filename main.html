@@ -1,39 +1,65 @@
+
 <!DOCTYPE html>
-<meta charset='utf-8'>
-<style>
-    .subunit.CHN { fill: #fb8072; }
-    .subunit.TWN { fill: #8dd3c7; }
-    .subunit.HKG { fill: #045a8d; }
-    .subunit.JPN { fill: #b3de69; }
-    .subunit.KOR { fill: #bc80bd; }
-    .subunit.IND { fill: #fdb462; }
-    .subunit.BTN { fill: #ffffb3; }
-    .subunit.NPL { fill: #80b1d3; }
-    .subunit.BGD { fill: #d9d9d9; }
-    .subunit.MMR { fill: #ccebc5; }
-    .subunit.THA { fill: #7489cf; }
-    .subunit.KHM { fill: #bebada; }
-    .subunit.VNM { fill: #df65b0; }
-    .subunit.LAO { fill: #fccde5; }
-    .subunit.PRK { fill: #989898; }
-
-</style>
-
-<!-- Load d3.js -->
-<script src="https://d3js.org/d3.v6.js"></script>
-<script src="https://d3js.org/topojson.v1.js"></script>
-  
-
-<body>
+<html>
+    <meta charset="utf-8">
+    <title>Map with D3.js!</title> 
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v6.js"></script>
+    <script src="https://unpkg.com/topojson@3.0.2/dist/topojson.min.js"></script>  
+    <!-- Create a div where the graph will take place -->
+    <body>
+        <h1>hello world</h1>
+        <div id="my_dataviz"></div>
+    </body>
     
-    <!-- Create an element where the map will take place -->
-    
-    <h1>hello worlds</h1>
-</body>
 </html>
 
+<style>
+    svg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    }
+    .country {
+    fill: #ccc;
+    stroke: #999;
+    }
+</style>
 
 <script>
-   
     
+    const width = 900;
+    const height = 600;
+
+    const svg = d3.select('body').append('svg').attr('width', width).attr('height', height);
+
+    const projection = d3.geoMercator().scale(140)
+        .translate([width / 2, height / 1.4]);
+    const path = d3.geoPath(projection);
+
+    const g = svg.append('g');
+    let SEcountries = ['Afghanistan','Bangladesh', 'Bhutan', 'India','Maldives', 'Nepal','Pakistan', 'Sri Lanka']
+    d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
+        .then(data => {
+
+            const countries = topojson.feature(data, data.objects.countries);
+            // let countres_short;
+            // console.log(countries.features);
+            // for (country in countries){ 
+            //     console.log(country)
+            //     if (SEcountries.includes(country.name)){
+            //         countres_short.push(country)
+            //     }
+            // };
+            // console.log(countres_short);
+            g.selectAll('path')
+                .data(countries.features)
+                    .enter().append('path')
+                        .attr('class', 'country')
+                            .attr('d', path);
+
+        });
+
+   
 </script>
