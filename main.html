@@ -2,125 +2,65 @@
 <!DOCTYPE html>
 <html>
     <meta charset="utf-8">
-    <title>Map with D3.js!</title> 
+    <title>Out of School Rates Across the Globe</title> 
     <!-- Load d3.js -->
     <script src="https://d3js.org/d3.v6.js"></script>
     <script src="https://unpkg.com/topojson@3.0.2/dist/topojson.min.js"></script>  
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+    <link href="style.css" rel="stylesheet">
     <!-- Create a div where the graph will take place -->
     <body>
-        <div id="my_dataviz"></div>
+        <div id="title" class="frame">
+            <p>Out of School Rates</p>
+        </div>
+        <div class="row">
+            <div id="visualization" class="frame">
+                <svg id="mapViz" width='700' height='600'></svg>
+                <script src="main.js"></script>
+            </div>    
+
+            <div id="filters" class= "frame">
+                
+                <br>
+                <select id='region'>
+                    <label for="region">Region</label>
+                <option value="all">All</option>
+                <option value="EAP">East Asia and Pacific</option>
+                <option value="ECA">Europe and Central Asia</option>
+                <option value="EECA">Eastern Europe and Central Asia</option>
+                <option value="ESA">Eastern and Southern Africa</option>
+                <option value="LAC">Latin America and the Caribbean</option>
+                <option value="MENA">Middle East and North Africa</option>
+                <option value="NA">North America</option>
+                <option value="SA">South Asia</option>
+                <option value="SSA">Sub-Saharan Africa</option>
+                <option value="WCA">West and Central Africa</option>
+
+                </select>
+
+                <select id='region'>
+                        <label for="region">Level</label>
+                    <option value="lower">Lower Secondary</option>
+                    <option value="primary">Primary</option>
+                    <option value="upper">Upper Secondary</option>
+                </select>
+                <br/><br/>
+            </div>
+
+
+            <script type="text/javascript">
+                document.getElementById("region").onchange = function () {
+                  $("#region").val(this.value);
+                  console.log(this.value);
+                  filterData("region", this.value);
+                }
+            </script>
+
+
+        </div>
+       
     </body>
     
 </html>
 
-<style>
-    svg {
-        position: absolute;
-        left: 10%;
-        top: 10%;
-        transform: translate(-50%, -50%);
-    }
-    .country {
-        fill: #ccc;
-        stroke: rgb(27, 25, 25);
-    }
 
-    .text {
-        fill: #777;
-        fill-opacity: .5;
-        font-size: 20px;
-        font-weight: 300;
-        text-anchor: middle;
-    }
-
-    div.tooltip {
-      color: #222; 
-      background: #fff; 
-      border-radius: 3px; 
-      box-shadow: 0px 0px 2px 0px #a6a6a6; 
-      padding: .2em; 
-      text-shadow: #f5f5f5 0 1px 0;
-      opacity: 0.9; 
-      position: absolute;
-    }
-</style>
-
-<script>
-    
-    const width = 900;
-    const height = 500;
-
-    const svg = d3.select('body').append('svg').attr('width', width).attr('height', height);
-
-    const projection = d3.geoMercator().scale(140)
-        .translate([width / 2, height / 1.4]);
-    const path = d3.geoPath(projection);
-
-    var tooltip = d3.select('div.tooltip');
-    const g = svg.append('g');
-    var SEcountries = ['Afghanistan','Bangladesh', 'Bhutan', 'India','Maldives', 'Nepal','Pakistan', 'Sri Lanka']
-   
-    
-    d3.csv("data/compiled_data.csv"),
-    d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson").then( function(data){
-
-    // Filter data
-    data.features = data.features.filter(d => {return SEcountries.includes(d.properties.name)})
-    console.log(data.features);
-
-    // mouseover
-    let mouseOver = function(d) {
-        console.log(d)
-        d3.selectAll(".Country")
-            .transition()
-            .duration(200)
-            .style("opacity", .5)
-            .style("stroke", "grey")
-        d3.select(this)
-            .transition()
-            .duration(200)
-            .style("opacity", 1)
-            .style("stroke", "#69b3a2")
-            .style("fill", "#69b3a2")
-    }
-
-    //mouseleave
-    let mouseLeave = function(d) {
-        d3.selectAll(".Country")
-        .transition()
-        .duration(200)
-        .style("opacity", .8)
-        .style("stroke", "grey")
-        d3.select(this)
-        .transition()
-        .duration(200)
-        .style("stroke", "transparent")
-        .style("fill", "#ccc")
-        .style("stroke", "grey")
-    }
-    // Draw the map
-    svg.append("g")
-        .selectAll("path")
-        .data(data.features)
-        .enter().append('path')
-        .attr('class', 'country')
-        .attr('d', path)
-        .style("stroke", "grey")
-        .style("stroke-opacity", .2)
-        .on("mouseover", mouseOver )
-        .on("mouseleave", mouseLeave );
-    
-   svg.selectAll("text")
-        .data(data.features)
-        .enter().append("text")
-        .text(function(d) {
-            console.log(d.properties.name)
-            return d.properties.name;
-        })
-        .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
-        .attr("dy", ".35em")
-        .style("font-size", "3px")
-    })
-
-   
-</script>

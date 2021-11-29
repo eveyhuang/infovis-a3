@@ -1,0 +1,56 @@
+body {
+    font-size: 1rem;
+    font-family: 'Raleway', sans-serif;
+}
+#visualization {
+    position: relative;
+    width: 800px;
+    text-align: center;
+    border-right-width: 0;
+}
+.row {
+    display: flex;
+}
+
+#title, #filters {
+    text-align: center;
+}
+
+#title {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: -1px;
+}
+.frame {
+    border: 1px solid black;
+    box-sizing: border-box;
+    padding: 0.5rem;
+}
+.country {
+    fill: #ccc;
+    stroke: rgb(27, 25, 25);
+}
+
+#filters {
+    width: 280px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.text {
+    fill: #777;
+    fill-opacity: .5;
+    font-size: 20px;
+    font-weight: 300;
+    text-anchor: middle;
+}
+
+div.tooltip {
+    color: #222; 
+    background: #fff; 
+    border-radius: 3px; 
+    box-shadow: 0px 0px 2px 0px #a6a6a6; 
+    padding: .2em; 
+    text-shadow: #f5f5f5 0 1px 0;
+    opacity: 0.9; 
+    position: absolute;
+}
