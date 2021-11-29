@@ -40,26 +40,39 @@
 
     const g = svg.append('g');
     let SEcountries = ['Afghanistan','Bangladesh', 'Bhutan', 'India','Maldives', 'Nepal','Pakistan', 'Sri Lanka']
-    d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
-        .then(data => {
+   
+    d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson").then( function(data){
 
-            const countries = topojson.feature(data, data.objects.countries);
-            // let countres_short;
-            // console.log(countries.features);
-            // for (country in countries){ 
-            //     console.log(country)
-            //     if (SEcountries.includes(country.name)){
-            //         countres_short.push(country)
-            //     }
-            // };
-            // console.log(countres_short);
-            g.selectAll('path')
-                .data(countries.features)
-                    .enter().append('path')
-                        .attr('class', 'country')
-                            .attr('d', path);
-
-        });
+    // Filter data
+    data.features = data.features.filter(d => {return SEcountries.includes(d.properties.name)})
+    console.log(data.features);
+    // Draw the map
+    svg.append("g")
+        .selectAll("path")
+        .data(data.features)
+        .enter().append('path')
+            .attr('class', 'country')
+                .attr('d', path)
+                    .style("stroke", "black")
+                        .style("stroke-opacity", .2);
+    
+    let labels = g
+        .selectAll("text")
+        .data(data.features)
+        .enter()
+        .append("text")
+        .text(function(d) {
+            console.log(d.properties.name)
+            return d.properties.name;
+        })
+        .style("stroke","#908e8e")
+        .style("font-size","10px")
+        .attr("dx", function (d) {
+            return "0.3em";})
+        .attr("dy", function (d) {
+            return "0.35em";
+        })
+    })
 
    
 </script>
