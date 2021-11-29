@@ -1,3 +1,25 @@
+<!-- <html>
+<head>
+    <title> Basic Barplot </title>
+</head>
+<body>
+
+<h3> Welcome to my barplot! </h3>
+
+<script src='https://d3js.org/d3.v6.min.js'></script>
+
+<script>
+    d3.select('h3').style('color', 'dodgerblue');
+    d3.select('h3').style('font-size', '24px');
+
+    d3.csv("../data/compiled_data.csv", function(data){
+    console.log(data)
+    });
+
+</script>
+</body>
+</html> -->
+
 <!DOCTYPE html>
 <meta charset="utf-8">
           
@@ -29,7 +51,7 @@
     .domain(data.map(d => d.Country))
     .padding(0.2);
 
-    
+
 </script>
 
 
