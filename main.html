@@ -20,11 +20,10 @@
             </div>    
 
             <div id="filters" class= "frame">
-                
                 <br>
                 <select id='region'>
                     <label for="region">Region</label>
-                <option value="all">All</option>
+                <option value="SA">South Asia</option>
                 <option value="EAP">East Asia and Pacific</option>
                 <option value="ECA">Europe and Central Asia</option>
                 <option value="EECA">Eastern Europe and Central Asia</option>
@@ -32,7 +31,6 @@
                 <option value="LAC">Latin America and the Caribbean</option>
                 <option value="MENA">Middle East and North Africa</option>
                 <option value="NA">North America</option>
-                <option value="SA">South Asia</option>
                 <option value="SSA">Sub-Saharan Africa</option>
                 <option value="WCA">West and Central Africa</option>
 
@@ -50,7 +48,6 @@
 
             <script type="text/javascript">
                 document.getElementById("region").onchange = function () {
-                  $("#region").val(this.value);
                   console.log(this.value);
                   filterData("region", this.value);
                 }
