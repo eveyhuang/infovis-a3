@@ -52,10 +52,6 @@
         .domain(schoolLevels)
         .range(d3.schemeSet2);
 
-        // data.sort(function(x, y){
-        //     return d3.ascending(x.Total, y.Total);
-        // })
-
         // X axis
         const x = d3.scaleBand() // allows scaling of bars
         .range([ 0, width ])
@@ -101,13 +97,7 @@
 
         // Make the bars with a chosen default school level to start with
         const barplot = svg.selectAll("bars")
-        .data(
-            filteredData
-            //data.filter(function(d){return d.Level=="Primary"}) // default is just the Primary
-            // .sort(function(x, y){ // sort the data in descending - have to figure this out
-            //     return d3.ascending(x.Total, y.Total);
-            // })
-            ) 
+        .data(filteredData) 
         .join("rect")
             .attr("x", d => x(d.Country))
             .attr("y", d => y(d.Total))
@@ -141,12 +131,10 @@
         function update(selectedLevel) {
 
             // Filter data by the selected level and also sort it
-            const filteredData = data.filter(d => d.Level === selectedLevel).sort((a, b) => b.Total - a.Total)
+            const filteredData = data.filter(d => d.Level === selectedLevel)//.sort((a, b) => b.Total - a.Total)
 
-            // Recalculate x-axis domain based on selected school level
-            // x.domain(filteredData.map(function(d) {
-            //     return d.Country;
-            // }));
+            // Recalculate x-axis domain based on selected school level + sorted countries
+            // x.domain(filteredData.map(d => d.Country)) // map the country names to the x axis
 
             // Update the barplot based on the selected school level
             barplot.data(filteredData)
