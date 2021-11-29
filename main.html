@@ -16,21 +16,40 @@
 
 <style>
     svg {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
     .country {
-    fill: #ccc;
-    stroke: #999;
+        fill: #ccc;
+        stroke: #999;
+    }
+
+    .text {
+        fill: #777;
+        fill-opacity: .5;
+        font-size: 20px;
+        font-weight: 300;
+        text-anchor: middle;
+    }
+
+    div.tooltip {
+      color: #222; 
+      background: #fff; 
+      border-radius: 3px; 
+      box-shadow: 0px 0px 2px 0px #a6a6a6; 
+      padding: .2em; 
+      text-shadow: #f5f5f5 0 1px 0;
+      opacity: 0.9; 
+      position: absolute;
     }
 </style>
 
 <script>
     
-    const width = 900;
-    const height = 600;
+    const width = 500;
+    const height = 500;
 
     const svg = d3.select('body').append('svg').attr('width', width).attr('height', height);
 
@@ -38,6 +57,7 @@
         .translate([width / 2, height / 1.4]);
     const path = d3.geoPath(projection);
 
+    var tooltip = d3.select('div.tooltip');
     const g = svg.append('g');
     let SEcountries = ['Afghanistan','Bangladesh', 'Bhutan', 'India','Maldives', 'Nepal','Pakistan', 'Sri Lanka']
    
@@ -51,27 +71,21 @@
         .selectAll("path")
         .data(data.features)
         .enter().append('path')
-            .attr('class', 'country')
-                .attr('d', path)
-                    .style("stroke", "black")
-                        .style("stroke-opacity", .2);
+        .attr('class', 'country')
+        .attr('d', path)
+        .style("stroke", "black")
+        .style("stroke-opacity", .2);
     
-    let labels = g
-        .selectAll("text")
+   svg.selectAll("text")
         .data(data.features)
-        .enter()
-        .append("text")
+        .enter().append("text")
         .text(function(d) {
             console.log(d.properties.name)
             return d.properties.name;
         })
-        .style("stroke","#908e8e")
-        .style("font-size","10px")
-        .attr("dx", function (d) {
-            return "0.3em";})
-        .attr("dy", function (d) {
-            return "0.35em";
-        })
+        .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
+        .attr("dy", ".35em")
+        .style("font-size", "3px")
     })
 
    
