@@ -8,7 +8,6 @@
     <script src="https://unpkg.com/topojson@3.0.2/dist/topojson.min.js"></script>  
     <!-- Create a div where the graph will take place -->
     <body>
-        <h1>hello world</h1>
         <div id="my_dataviz"></div>
     </body>
     
@@ -17,13 +16,13 @@
 <style>
     svg {
         position: absolute;
-        left: 50%;
-        top: 50%;
+        left: 10%;
+        top: 10%;
         transform: translate(-50%, -50%);
     }
     .country {
         fill: #ccc;
-        stroke: #999;
+        stroke: rgb(27, 25, 25);
     }
 
     .text {
@@ -59,13 +58,46 @@
 
     var tooltip = d3.select('div.tooltip');
     const g = svg.append('g');
-    let SEcountries = ['Afghanistan','Bangladesh', 'Bhutan', 'India','Maldives', 'Nepal','Pakistan', 'Sri Lanka']
+    var SEcountries = ['Afghanistan','Bangladesh', 'Bhutan', 'India','Maldives', 'Nepal','Pakistan', 'Sri Lanka']
    
+    
+    d3.csv("data/compiled_data.csv"),
     d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson").then( function(data){
 
     // Filter data
     data.features = data.features.filter(d => {return SEcountries.includes(d.properties.name)})
     console.log(data.features);
+
+    // mouseover
+    let mouseOver = function(d) {
+        console.log(d)
+        d3.selectAll(".Country")
+            .transition()
+            .duration(200)
+            .style("opacity", .5)
+            .style("stroke", "grey")
+        d3.select(this)
+            .transition()
+            .duration(200)
+            .style("opacity", 1)
+            .style("stroke", "#69b3a2")
+            .style("fill", "#69b3a2")
+    }
+
+    //mouseleave
+    let mouseLeave = function(d) {
+        d3.selectAll(".Country")
+        .transition()
+        .duration(200)
+        .style("opacity", .8)
+        .style("stroke", "grey")
+        d3.select(this)
+        .transition()
+        .duration(200)
+        .style("stroke", "transparent")
+        .style("fill", "#ccc")
+        .style("stroke", "grey")
+    }
     // Draw the map
     svg.append("g")
         .selectAll("path")
@@ -73,8 +105,10 @@
         .enter().append('path')
         .attr('class', 'country')
         .attr('d', path)
-        .style("stroke", "black")
-        .style("stroke-opacity", .2);
+        .style("stroke", "grey")
+        .style("stroke-opacity", .2)
+        .on("mouseover", mouseOver )
+        .on("mouseleave", mouseLeave );
     
    svg.selectAll("text")
         .data(data.features)
