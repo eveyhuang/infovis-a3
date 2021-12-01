@@ -7,6 +7,7 @@
     <script src="https://d3js.org/d3.v6.js"></script>
     <script src="https://unpkg.com/topojson@3.0.2/dist/topojson.min.js"></script>  
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
     <link href="style.css" rel="stylesheet">
     <!-- Create a div where the graph will take place -->
@@ -22,38 +23,15 @@
 
             <div id="filters" class= "frame">
                 <br>
-                <select id='region'>
-                    <label for="region">Region</label>
-                <option value="SA">South Asia</option>
-                <option value="EAP">East Asia and Pacific</option>
-                <option value="ECA">Europe and Central Asia</option>
-                <option value="EECA">Eastern Europe and Central Asia</option>
-                <option value="ESA">Eastern and Southern Africa</option>
-                <option value="LAC">Latin America and the Caribbean</option>
-                <option value="MENA">Middle East and North Africa</option>
-                <option value="NA">North America</option>
-                <option value="SSA">Sub-Saharan Africa</option>
-                <option value="WCA">West and Central Africa</option>
-
-                </select>
-
-                <select id='region'>
-                        <label for="region">Level</label>
+                
+                <select id='level'>
+                        <label for="level">Level</label>
                     <option value="lower">Lower Secondary</option>
                     <option value="primary">Primary</option>
                     <option value="upper">Upper Secondary</option>
                 </select>
                 <br/><br/>
             </div>
-
-
-            <script type="text/javascript">
-                document.getElementById("region").onchange = function () {
-                  console.log(this.value);
-                  filterData("region", this.value);
-                }
-            </script>
-
 
         </div>
        
