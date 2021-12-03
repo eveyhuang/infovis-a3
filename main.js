@@ -3,10 +3,10 @@ const margin = {top: 40, right: 30, bottom: 70, left: 50},
 width = 600 - margin.left - margin.right,
 height = 550 - margin.top - margin.bottom;
 
-const SAcountries = ['Afghanistan','Bangladesh', 'Bhutan', 'India','Maldives', 'Nepal','Pakistan', 'Sri Lanka'];
+// regions and corresponding countries 
 let countries = {"SA": ["Afghanistan", "Bangladesh", "Bhutan", "India", "Maldives", "Nepal", "Pakistan", "Sri Lanka"], "ECA": ["Albania", "Andorra", "Armenia", "Austria", "Azerbaijan", "Belarus", "Belgium", "Bosnia and Herzegovina", "Bulgaria", "Croatia", "Cyprus", "Czechia", "Denmark", "Estonia", "Finland", "France", "Georgia", "Germany", "Greece", "Holy See", "Hungary", "Iceland", "Ireland", "Italy", "Kazakhstan", "Kyrgyzstan", "Latvia", "Liechtenstein", "Lithuania", "Luxembourg", "Malta", "Monaco", "Montenegro", "Netherlands", "North Macedonia", "Norway", "Poland", "Portugal", "Republic of Moldova", "Romania", "Russian Federation", "San Marino", "Serbia", "Slovakia", "Slovenia", "Spain", "Sweden", "Switzerland", "Tajikistan", "Turkey", "Turkmenistan", "Ukraine", "United Kingdom", "Uzbekistan"], "MENA": ["Algeria", "Bahrain", "Egypt", "Iran (Islamic Republic of)", "Iraq", "Israel", "Jordan", "Kuwait", "Lebanon", "Libya", "Morocco", "Oman", "Qatar", "Saudi Arabia", "State of Palestine", "Syrian Arab Republic", "Tunisia", "United Arab Emirates", "Yemen"], "SSA": ["Angola", "Benin", "Botswana", "Burkina Faso", "Burundi", "Cabo Verde", "Cameroon", "Central African Republic", "Chad", "Comoros", "Congo", "Democratic Republic of the Congo", "Djibouti", "Equatorial Guinea", "Eritrea", "Eswatini", "Ethiopia", "Gabon", "Gambia", "Ghana", "Guinea", "Guinea-Bissau", "Kenya", "Lesotho", "Liberia", "Madagascar", "Malawi", "Mali", "Mauritania", "Mauritius", "Mozambique", "Namibia", "Niger", "Nigeria", "Rwanda", "Sao Tome and Principe", "Senegal", "Seychelles", "Sierra Leone", "Somalia", "South Africa", "South Sudan", "Sudan", "Togo", "Uganda", "United Republic of Tanzania", "Zambia", "Zimbabwe"], "LAC": ["Anguilla", "Antigua and Barbuda", "Argentina", "Bahamas", "Barbados", "Belize", "Bolivia (Plurinational State of)", "Brazil", "British Virgin Islands", "Chile", "Colombia", "Costa Rica", "Cuba", "Dominica", "Dominican Republic", "Ecuador", "El Salvador", "Grenada", "Guatemala", "Guyana", "Haiti", "Honduras", "Jamaica", "Mexico", "Montserrat", "Nicaragua", "Panama", "Paraguay", "Peru", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Suriname", "Trinidad and Tobago", "Turks and Caicos Islands", "Uruguay", "Venezuela (Bolivarian Republic of)"], "EAP": ["Australia", "Brunei Darussalam", "Cambodia", "China", "Cook Islands", "North Korea", "Fiji", "Indonesia", "Japan", "Kiribati", "Laos", "Malaysia", "Marshall Islands", "Micronesia (Federated States of)", "Mongolia", "Myanmar", "Nauru", "New Zealand", "Niue", "Palau", "Papua New Guinea", "Philippines", "Republic of Korea", "Samoa", "Singapore", "Solomon Islands", "Thailand", "Timor-Leste", "Tokelau", "Tonga", "Tuvalu", "Vanuatu", "Viet Nam"]};
-// console.log(countries);
 
+// some default variables
 let attributes = ["region", "level"];
 let region = "ECA";
 let mapdata, dataset;
@@ -23,7 +23,7 @@ var colorScale = d3.scaleSequential().domain([0, 100])
 const map = d3.select("#mapViz")
 // propjection is set to work with ECA region
 const projection = d3.geoMercator()
-    .center([30, 57])                // GPS of location to zoom on
+    .center([10, 57])                // GPS of location to zoom on
     .scale(370)                       // This is like the zoom
     .translate([ width/2, height/1.8 ])
 
@@ -70,11 +70,14 @@ Promise.all([
         data.set(d.ISO3, +d.Total)
     })
 ]).then(function(loadData){
-    let topo = loadData[0];
+    mapdata = loadData[0];
+
+    dataset = loadData[1];
+    console.log(dataset);
 
     // console.log(countries[region]);
     //filter out map data based on specific region
-    topo.features = topo.features.filter(d => {return countries[region].includes(d.properties.name)})
+    mapdata.features = mapdata.features.filter(d => {return countries[region].includes(d.properties.name)})
     // console.log(data.features);
 
     // mouseover
@@ -109,7 +112,7 @@ Promise.all([
     // Draw the map
     map.append("g")
         .selectAll("path")
-        .data(topo.features)
+        .data(mapdata.features)
         .enter().append('path')
         .attr('class', 'country')
         .attr('d', path)
@@ -125,7 +128,7 @@ Promise.all([
         .on("mouseleave", mouseLeave);
     
     map.selectAll("text")
-        .data(topo.features)
+        .data(mapdata.features)
         .enter().append("text")
         .text(function(d) {
             return d.properties.name;

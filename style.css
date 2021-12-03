@@ -4,7 +4,7 @@ body {
 }
 #visualization {
     position: relative;
-    width: 800px;
+    width: 900px;
     text-align: center;
     border-right-width: 0;
     float: left;
@@ -26,7 +26,7 @@ body {
     border: 1px solid black;
     box-sizing: border-box;
     padding: 0.5rem;
-    width: 1080px;
+    width: 965px;
 }
 .country {
     
@@ -37,6 +37,7 @@ body {
     width: 280px;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+    font-size: 10px;
 }
 .text {
     fill: #777;
