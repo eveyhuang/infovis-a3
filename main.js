@@ -11,16 +11,15 @@ let countries = {"SA": ["Afghanistan", "Bangladesh", "Bhutan", "India", "Maldive
 let attributes = ["region", "level"];
 let region = "SA";
 let mapdata, dataset, filter_query;
-let data = new Map()
+let data = new Map();
 
 // color scale for map filling
-var domain = [0, 100]
-
-var colorScale = d3.scaleSequential().domain([1,100])
+var colorScale = d3.scaleSequential().domain([0, 100])
 .interpolator(d3.interpolateBlues);
 
 const map = d3.select("svg")
 
+// propjection is set to work with ECA region
 const projection = d3.geoMercator()
     .center([30, 57])                // GPS of location to zoom on
     .scale(350)                       // This is like the zoom
@@ -29,6 +28,11 @@ const projection = d3.geoMercator()
 const path = d3.geoPath(projection);
 
 const g = map.append('g');
+
+// initiate tooltip
+tooltip = d3.select("body").append("div")
+.attr("class", "tooltip")
+.style("opacity", 0);
 
 Promise.all([
     d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"),
@@ -39,21 +43,28 @@ Promise.all([
     let topo = loadData[0];
 
     // console.log(countries[region]);
+    //filter out map data based on specific region
     topo.features = topo.features.filter(d => {return countries[region].includes(d.properties.name)})
     // console.log(data.features);
 
     // mouseover
-    let mouseOver = function(d) {
+    let mouseOver = function(event, d, i) {
         d3.selectAll(".Country")
             .transition()
             .duration(200)
-            .style("opacity", 1)
-            .style("stroke", "black")
+            .style("opacity", 0.3)
+            .style("stroke", "blue");
         d3.select(this)
             .transition()
             .duration(200)
             .style("opacity", 1)
-            .style("stroke", "black")
+            .style("stroke", "black");
+        tooltip.transition()
+            .duration(200)
+            .style("opacity", 1);
+        tooltip.html("<b>" + d.properties.name + "</b>: " + "Total out of school rates = " + data.get(d.id) + " % <br>" )
+            .style("left", (event.pageX + 5) + "px")
+            .style("top", (event.pageY - 28) + "px");
     }
 
     // //mouseleave
@@ -69,6 +80,7 @@ Promise.all([
         .style("stroke", "transparent")
         .style("stroke", "grey")
     }
+
     // Draw the map
     map.append("g")
         .selectAll("path")
@@ -80,13 +92,13 @@ Promise.all([
         .style("stroke-opacity", .2)
         // set the color of each country
         .attr("fill", function (d) {
-            console.log("topo id", d.id);
-            console.log("topo id in data", data.get(d.id));
+            // console.log("topo id", d.id);
+            // console.log("topo id in data", data.get(d.id));
             d.total = data.get(d.id) || 0;
-            console.log(colorScale(d.total))
+            // console.log(colorScale(d.total))
             return colorScale(d.total);
         })
-        .on("mouseover", mouseOver )
+        .on("mouseover", mouseOver)
         .on("mouseleave", mouseLeave);
     
     map.selectAll("text")
