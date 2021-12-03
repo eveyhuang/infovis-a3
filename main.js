@@ -1,6 +1,6 @@
 // set the dimensions and margins of the graph
-const margin = {top: 40, right: 30, bottom: 70, left: 60},
-width = 750 - margin.left - margin.right,
+const margin = {top: 40, right: 30, bottom: 70, left: 50},
+width = 600 - margin.left - margin.right,
 height = 550 - margin.top - margin.bottom;
 
 const SAcountries = ['Afghanistan','Bangladesh', 'Bhutan', 'India','Maldives', 'Nepal','Pakistan', 'Sri Lanka'];
@@ -8,7 +8,7 @@ let countries = {"SA": ["Afghanistan", "Bangladesh", "Bhutan", "India", "Maldive
 // console.log(countries);
 
 let attributes = ["region", "level"];
-let region = "SA";
+let region = "ECA";
 let mapdata, dataset;
 let data = new Map();
 
@@ -24,8 +24,8 @@ const map = d3.select("#mapViz")
 // propjection is set to work with ECA region
 const projection = d3.geoMercator()
     .center([30, 57])                // GPS of location to zoom on
-    .scale(350)                       // This is like the zoom
-    .translate([ width/2, height/2 ])
+    .scale(370)                       // This is like the zoom
+    .translate([ width/2, height/1.8 ])
 
 const path = d3.geoPath(projection);
 
@@ -33,7 +33,7 @@ const g = map.append('g');
 
 // legend for map
 var legend_x = width - 100
-var legend_y = height 
+var legend_y = height + 60
     
 map.append("g")
   .attr("class", "legend")
@@ -53,7 +53,7 @@ map.select(".legend")
 //append svg for boxplot 
 const boxPlot = d3.select("#sortedBarplot")
 .append("svg")
-  .attr("width", width + margin.left + margin.right)
+  .attr("width", width + 300)
   .attr("height", height + margin.top + margin.bottom)
 .append("g")
   .attr("transform", `translate(${margin.left},${margin.top})`);
@@ -79,11 +79,8 @@ Promise.all([
 
     // mouseover
     let mouseOver = function(event, d, i) {
-        d3.selectAll(".Country")
-            .transition()
-            .duration(200)
-            .style("opacity", 0.3)
-            .style("stroke", "blue");
+        selectedCountry =d.properties.name;
+        console.log("selecting: ", selectedCountry);
         d3.select(this)
             .transition()
             .duration(200)
@@ -99,19 +96,14 @@ Promise.all([
 
     // //mouseleave
     let mouseLeave = function(d) {
-        d3.selectAll(".Country")
-        .transition()
-        .duration(200)
-        .style("opacity", .8)
-        .style("stroke", "grey");
+        selectedCountry = null;
         d3.select(this)
         .transition()
         .duration(200)
         .style("stroke", "transparent")
         .style("stroke", "grey");
         tooltip.transition()
-        .duration(500)
-        .style("opacity", 0.5);
+        .style("opacity", 0);
     }
 
     // Draw the map
@@ -125,10 +117,8 @@ Promise.all([
         .style("stroke-opacity", .2)
         // set the color of each country
         .attr("fill", function (d) {
-            // console.log("topo id", d.id);
-            // console.log("topo id in data", data.get(d.id));
+            // fill teh country with total out of school
             d.total = data.get(d.id) || 0;
-            // console.log(colorScale(d.total))
             return colorScale(d.total);
         })
         .on("mouseover", mouseOver)
@@ -142,7 +132,7 @@ Promise.all([
         })
         .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
         .attr("dy", ".35em")
-        .style("font-size", "8px")
+        .style("font-size", "9px")
     })
 
 // Parse the Data
@@ -210,7 +200,7 @@ d3.csv("data/all_levels.csv").then( function(data) {
     boxPlot.append("text")
     .attr("class", "ylabel")
     .attr("text-anchor", "end")
-    .attr("y", -margin.left/1.5) // **SEE HERE**: mind these if you change the margins or width/height
+    .attr("y", -margin.left/1.6) // **SEE HERE**: mind these if you change the margins or width/height
     .attr("x", margin.bottom - height/2.8) // **SEE HERE**: mind these if you change the margins or width/height
     .attr("transform", "rotate(-90)")
     .text("Percentage of Students Dropped Out"); // Label
@@ -223,7 +213,7 @@ d3.csv("data/all_levels.csv").then( function(data) {
         .attr("y", d => y(d.Total))
         .attr("width", x.bandwidth())
         .attr("height", d => height - y(d.Total))
-        .attr("fill", function(d){ return levelColour(defaultLevel) })
+        .attr("fill", function(d){ return levelColour(defaultLevel)})
         // Animation: show no bars at the start
         .attr("height", function(d) { return height - y(0); }) // always equal to 0
         .attr("y", function(d) { return y(0); })
@@ -234,10 +224,8 @@ d3.csv("data/all_levels.csv").then( function(data) {
         .on("mouseout",function(){
                   d3.select(this)
                   .attr("fill", function(d){ return levelColour(defaultLevel) })
-                }) 
-        // .on("click", function() {
-        //    		sortBars();
-        //     });
+        }) 
+       
 
     // Animation
     boxPlot.selectAll("rect")
@@ -264,7 +252,7 @@ d3.csv("data/all_levels.csv").then( function(data) {
         .attr("width", x.bandwidth())
         .attr("height", d => height - y(d.Total))
         //.attr("fill", 'dodgerblue');
-        .attr("fill", function(d){ return levelColour(selectedLevel) })
+        .attr("fill", function(d){ return levelColour(defaultLevel) })
         // Animation: show no bars at the start
         .attr("height", function(d) { return height - y(0); }) // always equal to 0
         .attr("y", function(d) { return y(0); })
@@ -276,9 +264,9 @@ d3.csv("data/all_levels.csv").then( function(data) {
                   d3.select(this)
                   .attr("fill", function(d){ return levelColour(selectedLevel) })
                 }) 
-        // .on("click", function() {
-        //    		sortBars();
-        //     });
+        .on("click", function() {
+           		sortBars();
+            });
 
         // Animation
         boxPlot.selectAll("rect")
