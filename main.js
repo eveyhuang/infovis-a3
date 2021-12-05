@@ -8,11 +8,12 @@ let countries = {"SA": ["Afghanistan", "Bangladesh", "Bhutan", "India", "Maldive
 
 // some default variables
 let attributes = ["region", "level"];
-let region = "ECA";
+let region = "SA";
 let mapdata, dataset;
-let data = new Map();
 
-let selectedCountry = null;
+// Set default school level
+const defaultLevel = "Primary"
+
 // color scale for map filling
 var colorScale = d3.scaleSequential().domain([0, 100])
 .interpolator(d3.interpolateBlues);
@@ -23,8 +24,8 @@ var colorScale = d3.scaleSequential().domain([0, 100])
 const map = d3.select("#mapViz")
 // propjection is set to work with ECA region
 const projection = d3.geoMercator()
-    .center([10, 57])                // GPS of location to zoom on
-    .scale(370)                       // This is like the zoom
+    .center([70, 27])                // GPS of location to zoom on
+    .scale(700)                       // This is like the zoom
     .translate([ width/2, height/1.8 ])
 
 const path = d3.geoPath(projection);
@@ -64,24 +65,37 @@ tooltip = d3.select("body").append("div")
 .attr("class", "tooltip")
 .style("opacity", 0);
 
+
 Promise.all([
     d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"),
     d3.csv("data/all_levels.csv", function(d){
-        // console.log(d);
-        data.set(d.ISO3, +d.Total)
+        return {
+            country_id : d.ISO3,
+            country : d.Country, 
+            total : +d.Total,
+            female: +d.Female,
+            male:  +d.Male, // convert "Male" column to number
+            rural:  +d.RuralResidence,
+            urban: +d.UrbanResidence,
+            level: d.Level   
+        }
+        
     })
 ]).then(function(loadData){
+    
+    // mapdata is the geojson for drawing the map
     mapdata = loadData[0];
-
+    // dataset is the csv file for out of school rates; column names are defined  in line 74-81
     dataset = loadData[1];
-    console.log(dataset);
-
-    // console.log(countries[region]);
-    //filter out map data based on specific region
+    
+    //filter out map data based on chosen region
     mapdata.features = mapdata.features.filter(d => {return countries[region].includes(d.properties.name)})
-    // console.log(data.features);
+    
+    // Filter dataset by the defaut School level and also sort it
+    let filteredData = dataset.filter(d => d.level === defaultLevel).sort((a, b) => b.Total - a.Total)
+    console.log("Filtered Data:", filteredData);
 
-    // mouseover
+    // mouseover for map
     let mouseOver = function(event, d, i) {
         selectedCountry =d.properties.name;
         console.log("selecting: ", selectedCountry);
@@ -93,12 +107,12 @@ Promise.all([
         tooltip.transition()
             .duration(200)
             .style("opacity", 1);
-        tooltip.html("<b>" + d.properties.name + "</b>: " + "Total out of school rates = " + data.get(d.id) + " % <br>" )
+        tooltip.html("<b>" + d.properties.name + "</b>: " + "Total out of School Rates for Upper Secondary Schooling Level is " + data.get(d.id) + " % <br>" )
             .style("left", (event.pageX + 5) + "px")
             .style("top", (event.pageY - 28) + "px");
     }
 
-    // //mouseleave
+    // //mouseleave for map
     let mouseLeave = function(d) {
         selectedCountry = null;
         d3.select(this)
@@ -118,11 +132,12 @@ Promise.all([
         .attr('class', 'country')
         .attr('d', path)
         .style("stroke", "grey")
-        .style("stroke-opacity", .2)
+        .style("stroke-opacity", .5)
         // set the color of each country
         .attr("fill", function (d) {
             // fill teh country with total out of school
-            d.total = data.get(d.id) || 0;
+            let row = filteredData.filter(data => data.country_id === d.id);
+            d.total = row[0].total|| 0;
             return colorScale(d.total);
         })
         .on("mouseover", mouseOver)
@@ -132,18 +147,17 @@ Promise.all([
         .data(mapdata.features)
         .enter().append("text")
         .text(function(d) {
+            console.log(d.properties.name);
             return d.properties.name;
         })
         .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
         .attr("dy", ".35em")
-        .style("font-size", "9px")
-    })
+        .style("font-size", "11px")
+    
 
-// Parse the Data
-d3.csv("data/all_levels.csv").then( function(data) {
 
     // Get set of schooling levels - LS, PRIMARY, US
-    const schoolLevels = new Set(data.map(d => d.Level))
+    const schoolLevels = new Set(dataset.map(d => d.level))
     // console.log(schoolLevels)
 
    // Add school levels as options to dropdown menu
@@ -155,12 +169,7 @@ d3.csv("data/all_levels.csv").then( function(data) {
     .text(function (d) { return d + " School"; }) // Drop-Down Menu text
     .attr("value", function (d) { return d; }) // Value returned by drop-down menu
 
-    // Set default school level
-    const defaultLevel = "Primary"
-
-    // Filter data by the defaut level and also sort it
-    const filteredData = data.filter(d => d.Level === defaultLevel).sort((a, b) => b.Total - a.Total)
-
+    
     // Set colors for each school level
     const levelColour = d3.scaleOrdinal()
     .domain(schoolLevels)
@@ -169,7 +178,7 @@ d3.csv("data/all_levels.csv").then( function(data) {
     // X axis
     const x = d3.scaleBand() // allows scaling of bars
     .range([ 0, width ])
-    .domain(filteredData.map(d => d.Country)) // map the country names to the x axis
+    .domain(filteredData.map(d => d.country)) // map the country names to the x axis
     .padding(0.2);
     
     // Make x-axis + customise the positioning of xticks
@@ -213,10 +222,10 @@ d3.csv("data/all_levels.csv").then( function(data) {
     const barplot = boxPlot.selectAll("bars")
     .data(filteredData) 
     .join("rect")
-        .attr("x", d => x(d.Country))
-        .attr("y", d => y(d.Total))
+        .attr("x", d => x(d.country))
+        .attr("y", d => y(d.total))
         .attr("width", x.bandwidth())
-        .attr("height", d => height - y(d.Total))
+        .attr("height", d => height - y(d.total))
         .attr("fill", function(d){ return levelColour(defaultLevel)})
         // Animation: show no bars at the start
         .attr("height", function(d) { return height - y(0); }) // always equal to 0
@@ -235,15 +244,15 @@ d3.csv("data/all_levels.csv").then( function(data) {
     boxPlot.selectAll("rect")
     .transition()
     .duration(400)
-    .attr("y", function(d) { return y(d.Total); })
-    .attr("height", function(d) { return height - y(d.Total); })
+    .attr("y", function(d) { return y(d.total); })
+    .attr("height", function(d) { return height - y(d.total); })
     //.delay(function(d,i){console.log(i) ; return(i*100)})
 
     // Function to update visualization based on school level selected
     function update(selectedLevel) {
 
         // Filter data by the selected level and also sort it
-        const filteredData = data.filter(d => d.Level === selectedLevel)//.sort((a, b) => b.Total - a.Total)
+        filteredData = dataset.filter(d => d.level === selectedLevel).sort((a, b) => b.Total - a.Total)
 
         // Recalculate x-axis domain based on selected school level + sorted countries
         // x.domain(filteredData.map(d => d.Country)) // map the country names to the x axis
@@ -251,10 +260,10 @@ d3.csv("data/all_levels.csv").then( function(data) {
         // Update the barplot based on the selected school level
         barplot.data(filteredData)
         .join("rect")
-        .attr("x", d => x(d.Country))
-        .attr("y", d => y(d.Total))
+        .attr("x", d => x(d.country))
+        .attr("y", d => y(d.total))
         .attr("width", x.bandwidth())
-        .attr("height", d => height - y(d.Total))
+        .attr("height", d => height - y(d.total))
         //.attr("fill", 'dodgerblue');
         .attr("fill", function(d){ return levelColour(defaultLevel) })
         // Animation: show no bars at the start
@@ -276,8 +285,8 @@ d3.csv("data/all_levels.csv").then( function(data) {
         boxPlot.selectAll("rect")
         .transition()
         .duration(400)
-        .attr("y", function(d) { return y(d.Total); })
-        .attr("height", function(d) { return height - y(d.Total); })
+        .attr("y", function(d) { return y(d.total); })
+        .attr("height", function(d) { return height - y(d.total); })
 
     }
 
