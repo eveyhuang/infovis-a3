@@ -1,0 +1,100 @@
+ISO3,Country,Region,SubRegion,DevelopmentRegion,Total,Female,Male,RuralResidence,UrbanResidence,PoorestWealthQuintile,SecondWealthQuintile,MiddleWealthQuintile,FourthWealthQuintile,RichestWealthQuintile,DataSource,TimePeriod,Level
+AUS,Australia,EAP,EAP,More Developed,,,,,,,,,,,,,Primary
+BRN,Brunei Darussalam,EAP,EAP,Less Developed,,,,,,,,,,,,,Primary
+KHM,Cambodia,EAP,EAP,Least Developed,6.0,5.0,7.0,7.0,3.0,13.0,8.0,4.0,3.0,2.0,DHS 2014,2014.0,Primary
+CHN,China,EAP,EAP,Less Developed,5.0,5.0,5.0,5.0,5.0,,,,,,National Population Sample Survey 2015,2015.0,Primary
+COK,Cook Islands,EAP,EAP,Less Developed,,,,,,,,,,,,,Primary
+PRK,Democratic People's Republic of Korea,EAP,EAP,Less Developed,3.0,3.0,3.0,4.0,3.0,,,,,,MICS 2017,2017.0,Primary
+FJI,Fiji,EAP,EAP,Less Developed,,,,,,,,,,,,,Primary
+IDN,Indonesia,EAP,EAP,Less Developed,1.0,1.0,1.0,1.0,0.0,1.0,1.0,1.0,1.0,0.0,National Socio-Economic Survey 2018,2018.0,Primary
+JPN,Japan,EAP,EAP,More Developed,,,,,,,,,,,,,Primary
+KIR,Kiribati,EAP,EAP,Least Developed,3.0,2.0,4.0,2.0,4.0,3.0,2.0,4.0,4.0,2.0,MICS 2018-19,2019.0,Primary
+LAO,Lao People's Democratic Republic,EAP,EAP,Least Developed,8.0,8.0,8.0,10.0,3.0,19.0,7.0,4.0,2.0,1.0,MICS 2017,2017.0,Primary
+MYS,Malaysia,EAP,EAP,Less Developed,,,,,,,,,,,,,Primary
+MHL,Marshall Islands,EAP,EAP,Less Developed,,,,,,,,,,,,,Primary
+FSM,Micronesia (Federated States of),EAP,EAP,Less Developed,,,,,,,,,,,,,Primary
+MNG,Mongolia,EAP,EAP,Less Developed,4.0,3.0,5.0,3.0,4.0,3.0,4.0,4.0,4.0,3.0,MICS 2018,2018.0,Primary
+MMR,Myanmar,EAP,EAP,Least Developed,6.0,7.0,5.0,7.0,3.0,14.0,5.0,3.0,3.0,2.0,DHS 2015-16,2016.0,Primary
+NRU,Nauru,EAP,EAP,Less Developed,3.0,2.0,3.0,,,,,,,,Population and Housing Census 2011,2011.0,Primary
+NZL,New Zealand,EAP,EAP,More Developed,,,,,,,,,,,,,Primary
+NIU,Niue,EAP,EAP,Less Developed,,,,,,,,,,,,,Primary
+PLW,Palau,EAP,EAP,Less Developed,,,,,,,,,,,,,Primary
+PNG,Papua New Guinea,EAP,EAP,Less Developed,,,,,,,,,,,,,Primary
+PHL,Philippines,EAP,EAP,Less Developed,2.0,2.0,3.0,2.0,2.0,4.0,2.0,2.0,1.0,1.0,DHS 2017,2017.0,Primary
+KOR,Republic of Korea,EAP,EAP,Less Developed,,,,,,,,,,,,,Primary
+WSM,Samoa,EAP,EAP,Less Developed,,,,,,,,,,,,,Primary
+SGP,Singapore,EAP,EAP,Less Developed,,,,,,,,,,,,,Primary
+SLB,Solomon Islands,EAP,EAP,Least Developed,,,,,,,,,,,,,Primary
+THA,Thailand,EAP,EAP,Less Developed,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,2.0,1.0,MICS 2019,2019.0,Primary
+TLS,Timor-Leste,EAP,EAP,Least Developed,10.0,9.0,10.0,11.0,4.0,18.0,12.0,7.0,5.0,3.0,DHS 2016,2016.0,Primary
+TKL,Tokelau,EAP,EAP,Not Classified,,,,,,,,,,,,,Primary
+TON,Tonga,EAP,EAP,Less Developed,4.0,4.0,4.0,4.0,3.0,5.0,3.0,3.0,4.0,3.0,MICS 2019,2019.0,Primary
+TUV,Tuvalu,EAP,EAP,Least Developed,,,,,,,,,,,,,Primary
+VUT,Vanuatu,EAP,EAP,Least Developed,,,,,,,,,,,,,Primary
+VNM,Viet Nam,EAP,EAP,Less Developed,2.0,2.0,1.0,2.0,1.0,5.0,1.0,0.0,1.0,1.0,MICS 2014,2014.0,Primary
+AUS,Australia,EAP,EAP,More Developed,,,,,,,,,,,,,Lower-Secondary
+BRN,Brunei Darussalam,EAP,EAP,Less Developed,,,,,,,,,,,,,Lower-Secondary
+KHM,Cambodia,EAP,EAP,Least Developed,25.0,25.0,26.0,26.0,20.0,40.0,29.0,24.0,17.0,15.0,DHS 2014,2014.0,Lower-Secondary
+CHN,China,EAP,EAP,Less Developed,3.0,3.0,3.0,4.0,3.0,,,,,,National Population Sample Survey 2015,2015.0,Lower-Secondary
+COK,Cook Islands,EAP,EAP,Less Developed,,,,,,,,,,,,,Lower-Secondary
+PRK,Democratic People's Republic of Korea,EAP,EAP,Less Developed,0.0,0.0,0.0,0.0,0.0,,,,,,MICS 2017,2017.0,Lower-Secondary
+FJI,Fiji,EAP,EAP,Less Developed,,,,,,,,,,,,,Lower-Secondary
+IDN,Indonesia,EAP,EAP,Less Developed,7.0,6.0,8.0,9.0,5.0,11.0,8.0,6.0,5.0,3.0,National Socio-Economic Survey 2018,2018.0,Lower-Secondary
+JPN,Japan,EAP,EAP,More Developed,,,,,,,,,,,,,Lower-Secondary
+KIR,Kiribati,EAP,EAP,Least Developed,10.0,5.0,15.0,11.0,9.0,16.0,11.0,11.0,9.0,3.0,MICS 2018-19,2019.0,Lower-Secondary
+LAO,Lao People's Democratic Republic,EAP,EAP,Least Developed,20.0,22.0,18.0,22.0,15.0,32.0,20.0,18.0,12.0,13.0,MICS 2017,2017.0,Lower-Secondary
+MYS,Malaysia,EAP,EAP,Less Developed,,,,,,,,,,,,,Lower-Secondary
+MHL,Marshall Islands,EAP,EAP,Less Developed,,,,,,,,,,,,,Lower-Secondary
+FSM,Micronesia (Federated States of),EAP,EAP,Less Developed,,,,,,,,,,,,,Lower-Secondary
+MNG,Mongolia,EAP,EAP,Less Developed,4.0,3.0,5.0,4.0,4.0,6.0,3.0,5.0,3.0,5.0,MICS 2018,2018.0,Lower-Secondary
+MMR,Myanmar,EAP,EAP,Least Developed,17.0,17.0,16.0,19.0,10.0,30.0,18.0,15.0,9.0,6.0,DHS 2015-16,2016.0,Lower-Secondary
+NRU,Nauru,EAP,EAP,Less Developed,,,,,,,,,,,,,Lower-Secondary
+NZL,New Zealand,EAP,EAP,More Developed,,,,,,,,,,,,,Lower-Secondary
+NIU,Niue,EAP,EAP,Less Developed,,,,,,,,,,,,,Lower-Secondary
+PLW,Palau,EAP,EAP,Less Developed,,,,,,,,,,,,,Lower-Secondary
+PNG,Papua New Guinea,EAP,EAP,Less Developed,,,,,,,,,,,,,Lower-Secondary
+PHL,Philippines,EAP,EAP,Less Developed,4.0,3.0,5.0,4.0,4.0,9.0,5.0,2.0,2.0,2.0,DHS 2017,2017.0,Lower-Secondary
+KOR,Republic of Korea,EAP,EAP,Less Developed,,,,,,,,,,,,,Lower-Secondary
+WSM,Samoa,EAP,EAP,Less Developed,,,,,,,,,,,,,Lower-Secondary
+SGP,Singapore,EAP,EAP,Less Developed,,,,,,,,,,,,,Lower-Secondary
+SLB,Solomon Islands,EAP,EAP,Least Developed,,,,,,,,,,,,,Lower-Secondary
+THA,Thailand,EAP,EAP,Less Developed,3.0,2.0,5.0,4.0,3.0,7.0,3.0,5.0,1.0,1.0,MICS 2019,2019.0,Lower-Secondary
+TLS,Timor-Leste,EAP,EAP,Least Developed,9.0,8.0,10.0,10.0,5.0,16.0,11.0,8.0,5.0,3.0,DHS 2016,2016.0,Lower-Secondary
+TKL,Tokelau,EAP,EAP,Not Classified,,,,,,,,,,,,,Lower-Secondary
+TON,Tonga,EAP,EAP,Less Developed,11.0,8.0,14.0,12.0,8.0,18.0,15.0,10.0,5.0,5.0,MICS 2019,2019.0,Lower-Secondary
+TUV,Tuvalu,EAP,EAP,Least Developed,,,,,,,,,,,,,Lower-Secondary
+VUT,Vanuatu,EAP,EAP,Least Developed,,,,,,,,,,,,,Lower-Secondary
+VNM,Viet Nam,EAP,EAP,Less Developed,6.0,6.0,6.0,7.0,3.0,16.0,5.0,3.0,2.0,1.0,MICS 2014,2014.0,Lower-Secondary
+AUS,Australia,EAP,EAP,More Developed,,,,,,,,,,,,,Upper-Secondary
+BRN,Brunei Darussalam,EAP,EAP,Less Developed,,,,,,,,,,,,,Upper-Secondary
+KHM,Cambodia,EAP,EAP,Least Developed,60.0,62.0,58.0,65.0,39.0,79.0,74.0,65.0,53.0,35.0,DHS 2014,2014.0,Upper-Secondary
+CHN,China,EAP,EAP,Less Developed,14.0,13.0,16.0,19.0,10.0,,,,,,National Population Sample Survey 2015,2015.0,Upper-Secondary
+COK,Cook Islands,EAP,EAP,Less Developed,,,,,,,,,,,,,Upper-Secondary
+PRK,Democratic People's Republic of Korea,EAP,EAP,Less Developed,1.0,1.0,1.0,1.0,1.0,,,,,,MICS 2017,2017.0,Upper-Secondary
+FJI,Fiji,EAP,EAP,Less Developed,,,,,,,,,,,,,Upper-Secondary
+IDN,Indonesia,EAP,EAP,Less Developed,23.0,21.0,24.0,30.0,17.0,38.0,27.0,20.0,18.0,11.0,National Socio-Economic Survey 2018,2018.0,Upper-Secondary
+JPN,Japan,EAP,EAP,More Developed,,,,,,,,,,,,,Upper-Secondary
+KIR,Kiribati,EAP,EAP,Least Developed,39.0,30.0,46.0,42.0,36.0,53.0,37.0,42.0,41.0,24.0,MICS 2018-19,2019.0,Upper-Secondary
+LAO,Lao People's Democratic Republic,EAP,EAP,Least Developed,38.0,42.0,35.0,46.0,19.0,68.0,50.0,38.0,23.0,11.0,MICS 2017,2017.0,Upper-Secondary
+MYS,Malaysia,EAP,EAP,Less Developed,,,,,,,,,,,,,Upper-Secondary
+MHL,Marshall Islands,EAP,EAP,Less Developed,,,,,,,,,,,,,Upper-Secondary
+FSM,Micronesia (Federated States of),EAP,EAP,Less Developed,,,,,,,,,,,,,Upper-Secondary
+MNG,Mongolia,EAP,EAP,Less Developed,11.0,5.0,15.0,19.0,7.0,25.0,7.0,8.0,3.0,8.0,MICS 2018,2018.0,Upper-Secondary
+MMR,Myanmar,EAP,EAP,Least Developed,52.0,49.0,54.0,58.0,35.0,73.0,60.0,53.0,43.0,24.0,DHS 2015-16,2016.0,Upper-Secondary
+NRU,Nauru,EAP,EAP,Less Developed,,,,,,,,,,,,,Upper-Secondary
+NZL,New Zealand,EAP,EAP,More Developed,,,,,,,,,,,,,Upper-Secondary
+NIU,Niue,EAP,EAP,Less Developed,,,,,,,,,,,,,Upper-Secondary
+PLW,Palau,EAP,EAP,Less Developed,,,,,,,,,,,,,Upper-Secondary
+PNG,Papua New Guinea,EAP,EAP,Less Developed,,,,,,,,,,,,,Upper-Secondary
+PHL,Philippines,EAP,EAP,Less Developed,9.0,4.0,13.0,10.0,8.0,21.0,10.0,9.0,3.0,2.0,DHS 2017,2017.0,Upper-Secondary
+KOR,Republic of Korea,EAP,EAP,Less Developed,,,,,,,,,,,,,Upper-Secondary
+WSM,Samoa,EAP,EAP,Less Developed,,,,,,,,,,,,,Upper-Secondary
+SGP,Singapore,EAP,EAP,Less Developed,,,,,,,,,,,,,Upper-Secondary
+SLB,Solomon Islands,EAP,EAP,Least Developed,,,,,,,,,,,,,Upper-Secondary
+THA,Thailand,EAP,EAP,Less Developed,18.0,11.0,25.0,20.0,15.0,33.0,22.0,22.0,11.0,2.0,MICS 2019,2019.0,Upper-Secondary
+TLS,Timor-Leste,EAP,EAP,Least Developed,17.0,14.0,19.0,19.0,12.0,26.0,23.0,18.0,14.0,6.0,DHS 2016,2016.0,Upper-Secondary
+TKL,Tokelau,EAP,EAP,Not Classified,,,,,,,,,,,,,Upper-Secondary
+TON,Tonga,EAP,EAP,Less Developed,39.0,29.0,50.0,40.0,35.0,48.0,48.0,36.0,37.0,24.0,MICS 2019,2019.0,Upper-Secondary
+TUV,Tuvalu,EAP,EAP,Least Developed,,,,,,,,,,,,,Upper-Secondary
+VUT,Vanuatu,EAP,EAP,Least Developed,,,,,,,,,,,,,Upper-Secondary
+VNM,Viet Nam,EAP,EAP,Less Developed,24.0,22.0,26.0,27.0,18.0,49.0,27.0,22.0,12.0,6.0,MICS 2014,2014.0,Upper-Secondary

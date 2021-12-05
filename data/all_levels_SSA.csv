@@ -1,0 +1,124 @@
+ISO3,Country,Region,SubRegion,DevelopmentRegion,Total,Female,Male,RuralResidence,UrbanResidence,PoorestWealthQuintile,SecondWealthQuintile,MiddleWealthQuintile,FourthWealthQuintile,RichestWealthQuintile,DataSource,TimePeriod,Level
+AGO,Angola,SSA,ESA,Least Developed,22.0,22.0,21.0,35.0,14.0,39.0,33.0,19.0,12.0,5.0,DHS 2015-16,2016.0,Primary
+BEN,Benin,SSA,WCA,Least Developed,32.0,35.0,28.0,38.0,21.0,59.0,39.0,30.0,15.0,7.0,DHS 2017-18,2018.0,Primary
+BFA,Burkina Faso,SSA,WCA,Least Developed,48.0,50.0,46.0,55.0,17.0,69.0,58.0,50.0,40.0,15.0,DHS 2010,2010.0,Primary
+BDI,Burundi,SSA,ESA,Least Developed,18.0,18.0,18.0,19.0,6.0,36.0,21.0,14.0,11.0,6.0,DHS 2016-17,2017.0,Primary
+CMR,Cameroon,SSA,WCA,Less Developed,15.0,17.0,14.0,24.0,6.0,37.0,18.0,10.0,4.0,2.0,DHS 2018,2018.0,Primary
+CAF,Central African Republic,SSA,WCA,Least Developed,26.0,31.0,21.0,33.0,13.0,42.0,36.0,26.0,17.0,8.0,MICS 2010,2010.0,Primary
+TCD,Chad,SSA,WCA,Least Developed,50.0,53.0,47.0,55.0,28.0,55.0,53.0,57.0,55.0,24.0,DHS 2014-15,2015.0,Primary
+COM,Comoros,SSA,ESA,Least Developed,14.0,15.0,14.0,17.0,9.0,28.0,18.0,10.0,4.0,4.0,DHS 2012,2012.0,Primary
+COG,Congo,SSA,WCA,Less Developed,3.0,3.0,3.0,6.0,2.0,8.0,4.0,2.0,1.0,1.0,MICS 2014-15,2015.0,Primary
+CIV,Côte d'Ivoire,SSA,WCA,Less Developed,23.0,26.0,21.0,29.0,15.0,38.0,29.0,23.0,13.0,6.0,MICS 2016,2016.0,Primary
+COD,Democratic Republic of the Congo,SSA,WCA,Least Developed,22.0,22.0,21.0,28.0,13.0,35.0,29.0,21.0,15.0,6.0,MICS 2017-18,2018.0,Primary
+SWZ,Eswatini,SSA,ESA,Less Developed,1.0,1.0,2.0,2.0,1.0,2.0,2.0,1.0,2.0,0.0,MICS 2014,2014.0,Primary
+ETH,Ethiopia,SSA,ESA,Least Developed,25.0,25.0,26.0,27.0,9.0,41.0,30.0,22.0,19.0,9.0,DHS 2016,2016.0,Primary
+GAB,Gabon,SSA,WCA,Less Developed,4.0,3.0,4.0,5.0,4.0,8.0,4.0,1.0,2.0,3.0,DHS 2012,2012.0,Primary
+GMB,Gambia,SSA,WCA,Least Developed,27.0,27.0,28.0,35.0,18.0,32.0,34.0,32.0,23.0,10.0,DHS 2013,2013.0,Primary
+GHA,Ghana,SSA,WCA,Less Developed,7.0,6.0,7.0,8.0,4.0,16.0,6.0,4.0,3.0,1.0,MICS 2017-18,2018.0,Primary
+GIN,Guinea,SSA,WCA,Least Developed,34.0,37.0,31.0,44.0,14.0,55.0,43.0,38.0,22.0,11.0,DHS 2018,2018.0,Primary
+GNB,Guinea-Bissau,SSA,WCA,Least Developed,28.0,26.0,29.0,36.0,11.0,38.0,39.0,34.0,19.0,6.0,MICS 2018-19,2019.0,Primary
+KEN,Kenya,SSA,ESA,Less Developed,5.0,5.0,5.0,5.0,3.0,14.0,2.0,1.0,2.0,2.0,DHS 2014,2014.0,Primary
+LSO,Lesotho,SSA,ESA,Least Developed,3.0,2.0,4.0,3.0,3.0,5.0,2.0,2.0,3.0,1.0,MICS 2018,2018.0,Primary
+LBR,Liberia,SSA,WCA,Least Developed,17.0,17.0,18.0,23.0,14.0,32.0,23.0,16.0,10.0,7.0,DHS 2013,2013.0,Primary
+MDG,Madagascar,SSA,ESA,Least Developed,22.0,19.0,24.0,24.0,11.0,44.0,30.0,14.0,7.0,3.0,MICS 2018,2018.0,Primary
+MWI,Malawi,SSA,ESA,Least Developed,6.0,5.0,6.0,6.0,2.0,10.0,7.0,5.0,3.0,2.0,DHS 2015-16,2016.0,Primary
+MLI,Mali,SSA,WCA,Least Developed,47.0,50.0,45.0,55.0,18.0,74.0,59.0,50.0,34.0,16.0,MICS 2015,2015.0,Primary
+MRT,Mauritania,SSA,WCA,Least Developed,42.0,40.0,44.0,51.0,29.0,58.0,53.0,39.0,31.0,17.0,MICS 2015,2015.0,Primary
+MOZ,Mozambique,SSA,ESA,Least Developed,23.0,23.0,23.0,27.0,12.0,36.0,32.0,25.0,16.0,5.0,DHS 2011,2011.0,Primary
+NAM,Namibia,SSA,ESA,Less Developed,4.0,4.0,5.0,6.0,2.0,8.0,5.0,4.0,2.0,1.0,DHS 2013,2013.0,Primary
+NER,Niger,SSA,WCA,Least Developed,49.0,54.0,45.0,55.0,17.0,65.0,60.0,55.0,43.0,18.0,DHS 2012,2012.0,Primary
+NGA,Nigeria,SSA,WCA,Less Developed,28.0,29.0,27.0,39.0,11.0,64.0,36.0,17.0,6.0,3.0,DHS 2018,2018.0,Primary
+RWA,Rwanda,SSA,ESA,Least Developed,6.0,4.0,7.0,6.0,4.0,12.0,6.0,4.0,3.0,3.0,DHS 2014-15,2015.0,Primary
+STP,Sao Tome and Principe,SSA,WCA,Least Developed,3.0,3.0,4.0,4.0,3.0,5.0,5.0,3.0,3.0,1.0,MICS 2014,2014.0,Primary
+SEN,Senegal,SSA,WCA,Least Developed,39.0,38.0,40.0,51.0,20.0,56.0,47.0,37.0,31.0,14.0,DHS 2019,2019.0,Primary
+SLE,Sierra Leone,SSA,WCA,Least Developed,17.0,15.0,20.0,24.0,8.0,34.0,22.0,14.0,9.0,6.0,MICS 2017,2017.0,Primary
+ZAF,South Africa,SSA,ESA,Less Developed,1.0,1.0,1.0,1.0,1.0,2.0,1.0,1.0,1.0,0.0,DHS 2016,2016.0,Primary
+SSD,South Sudan,SSA,ESA,Least Developed,72.0,75.0,70.0,78.0,56.0,86.0,84.0,77.0,65.0,44.0,MICS 2010,2010.0,Primary
+SDN,Sudan,SSA,ESA,Least Developed,21.0,21.0,20.0,27.0,6.0,41.0,33.0,15.0,5.0,1.0,MICS 2014,2014.0,Primary
+TGO,Togo,SSA,WCA,Least Developed,8.0,9.0,8.0,11.0,3.0,17.0,10.0,4.0,2.0,3.0,MICS 2017,2017.0,Primary
+UGA,Uganda,SSA,ESA,Least Developed,8.0,8.0,9.0,9.0,6.0,20.0,8.0,5.0,4.0,3.0,DHS 2016,2016.0,Primary
+TZA,United Republic of Tanzania,SSA,ESA,Least Developed,16.0,14.0,18.0,19.0,7.0,32.0,21.0,12.0,7.0,4.0,DHS 2015-16,2016.0,Primary
+ZMB,Zambia,SSA,ESA,Least Developed,16.0,13.0,18.0,19.0,9.0,28.0,20.0,15.0,10.0,3.0,DHS 2018,2018.0,Primary
+ZWE,Zimbabwe,SSA,ESA,Less Developed,5.0,4.0,5.0,5.0,4.0,8.0,4.0,4.0,4.0,2.0,MICS 2019,2019.0,Primary
+AGO,Angola,SSA,ESA,Least Developed,15.0,17.0,14.0,28.0,10.0,31.0,26.0,16.0,6.0,4.0,DHS 2015-16,2016.0,Lower-Secondary
+BEN,Benin,SSA,WCA,Least Developed,41.0,47.0,36.0,48.0,31.0,65.0,52.0,42.0,31.0,18.0,DHS 2017-18,2018.0,Lower-Secondary
+BFA,Burkina Faso,SSA,WCA,Least Developed,57.0,59.0,56.0,65.0,31.0,77.0,67.0,62.0,49.0,32.0,DHS 2010,2010.0,Lower-Secondary
+BDI,Burundi,SSA,ESA,Least Developed,29.0,28.0,31.0,31.0,20.0,49.0,35.0,26.0,20.0,22.0,DHS 2016-17,2017.0,Lower-Secondary
+CMR,Cameroon,SSA,WCA,Less Developed,19.0,22.0,16.0,28.0,10.0,40.0,27.0,16.0,10.0,5.0,DHS 2018,2018.0,Lower-Secondary
+CAF,Central African Republic,SSA,WCA,Least Developed,32.0,43.0,20.0,41.0,21.0,52.0,44.0,38.0,25.0,15.0,MICS 2010,2010.0,Lower-Secondary
+TCD,Chad,SSA,WCA,Least Developed,42.0,49.0,36.0,49.0,21.0,50.0,48.0,49.0,49.0,17.0,DHS 2014-15,2015.0,Lower-Secondary
+COM,Comoros,SSA,ESA,Least Developed,14.0,14.0,15.0,16.0,11.0,27.0,16.0,13.0,9.0,8.0,DHS 2012,2012.0,Lower-Secondary
+COG,Congo,SSA,WCA,Less Developed,7.0,8.0,6.0,10.0,5.0,14.0,10.0,8.0,2.0,2.0,MICS 2014-15,2015.0,Lower-Secondary
+CIV,Côte d'Ivoire,SSA,WCA,Less Developed,33.0,38.0,27.0,40.0,26.0,50.0,37.0,33.0,25.0,22.0,MICS 2016,2016.0,Lower-Secondary
+COD,Democratic Republic of the Congo,SSA,WCA,Least Developed,17.0,18.0,16.0,21.0,12.0,28.0,17.0,17.0,16.0,8.0,MICS 2017-18,2018.0,Lower-Secondary
+SWZ,Eswatini,SSA,ESA,Less Developed,4.0,4.0,5.0,4.0,5.0,6.0,3.0,3.0,7.0,4.0,MICS 2014,2014.0,Lower-Secondary
+ETH,Ethiopia,SSA,ESA,Least Developed,31.0,31.0,30.0,33.0,22.0,48.0,40.0,28.0,24.0,20.0,DHS 2016,2016.0,Lower-Secondary
+GAB,Gabon,SSA,WCA,Less Developed,3.0,3.0,4.0,5.0,3.0,7.0,4.0,4.0,2.0,1.0,DHS 2012,2012.0,Lower-Secondary
+GMB,Gambia,SSA,WCA,Least Developed,33.0,35.0,30.0,45.0,23.0,43.0,42.0,44.0,24.0,12.0,DHS 2013,2013.0,Lower-Secondary
+GHA,Ghana,SSA,WCA,Less Developed,7.0,6.0,8.0,8.0,6.0,15.0,6.0,6.0,4.0,3.0,MICS 2017-18,2018.0,Lower-Secondary
+GIN,Guinea,SSA,WCA,Least Developed,46.0,54.0,38.0,62.0,26.0,72.0,59.0,57.0,39.0,20.0,DHS 2018,2018.0,Lower-Secondary
+GNB,Guinea-Bissau,SSA,WCA,Least Developed,23.0,26.0,20.0,27.0,18.0,28.0,26.0,27.0,20.0,16.0,MICS 2018-19,2019.0,Lower-Secondary
+KEN,Kenya,SSA,ESA,Less Developed,3.0,3.0,3.0,4.0,2.0,10.0,2.0,1.0,1.0,1.0,DHS 2014,2014.0,Lower-Secondary
+LSO,Lesotho,SSA,ESA,Least Developed,14.0,9.0,19.0,18.0,7.0,23.0,20.0,13.0,6.0,5.0,MICS 2018,2018.0,Lower-Secondary
+LBR,Liberia,SSA,WCA,Least Developed,20.0,18.0,21.0,29.0,14.0,38.0,24.0,21.0,15.0,9.0,DHS 2013,2013.0,Lower-Secondary
+MDG,Madagascar,SSA,ESA,Least Developed,36.0,33.0,38.0,40.0,21.0,61.0,47.0,32.0,24.0,12.0,MICS 2018,2018.0,Lower-Secondary
+MWI,Malawi,SSA,ESA,Least Developed,8.0,8.0,8.0,8.0,5.0,14.0,9.0,8.0,6.0,4.0,DHS 2015-16,2016.0,Lower-Secondary
+MLI,Mali,SSA,WCA,Least Developed,59.0,63.0,55.0,68.0,32.0,83.0,77.0,67.0,51.0,29.0,MICS 2015,2015.0,Lower-Secondary
+MRT,Mauritania,SSA,WCA,Least Developed,41.0,42.0,40.0,52.0,28.0,62.0,51.0,40.0,31.0,17.0,MICS 2015,2015.0,Lower-Secondary
+MOZ,Mozambique,SSA,ESA,Least Developed,33.0,38.0,28.0,41.0,19.0,50.0,49.0,38.0,27.0,13.0,DHS 2011,2011.0,Lower-Secondary
+NAM,Namibia,SSA,ESA,Less Developed,12.0,12.0,11.0,13.0,10.0,16.0,16.0,9.0,13.0,3.0,DHS 2013,2013.0,Lower-Secondary
+NER,Niger,SSA,WCA,Least Developed,70.0,73.0,67.0,79.0,37.0,90.0,80.0,80.0,72.0,41.0,DHS 2012,2012.0,Lower-Secondary
+NGA,Nigeria,SSA,WCA,Less Developed,27.0,29.0,25.0,39.0,11.0,68.0,34.0,17.0,7.0,5.0,DHS 2018,2018.0,Lower-Secondary
+RWA,Rwanda,SSA,ESA,Least Developed,26.0,26.0,26.0,26.0,24.0,34.0,29.0,24.0,21.0,24.0,DHS 2014-15,2015.0,Lower-Secondary
+STP,Sao Tome and Principe,SSA,WCA,Least Developed,8.0,7.0,9.0,11.0,7.0,15.0,12.0,6.0,7.0,2.0,MICS 2014,2014.0,Lower-Secondary
+SEN,Senegal,SSA,WCA,Least Developed,39.0,36.0,42.0,50.0,25.0,57.0,47.0,39.0,34.0,17.0,DHS 2019,2019.0,Lower-Secondary
+SLE,Sierra Leone,SSA,WCA,Least Developed,19.0,18.0,20.0,29.0,8.0,39.0,29.0,17.0,10.0,7.0,MICS 2017,2017.0,Lower-Secondary
+ZAF,South Africa,SSA,ESA,Less Developed,5.0,4.0,6.0,5.0,6.0,9.0,6.0,3.0,4.0,2.0,DHS 2016,2016.0,Lower-Secondary
+SSD,South Sudan,SSA,ESA,Least Developed,63.0,67.0,59.0,69.0,44.0,85.0,74.0,67.0,55.0,34.0,MICS 2010,2010.0,Lower-Secondary
+SDN,Sudan,SSA,ESA,Least Developed,21.0,25.0,16.0,26.0,8.0,33.0,31.0,22.0,11.0,3.0,MICS 2014,2014.0,Lower-Secondary
+TGO,Togo,SSA,WCA,Least Developed,12.0,14.0,10.0,14.0,10.0,20.0,14.0,9.0,7.0,10.0,MICS 2017,2017.0,Lower-Secondary
+UGA,Uganda,SSA,ESA,Least Developed,23.0,23.0,22.0,23.0,24.0,29.0,22.0,21.0,19.0,25.0,DHS 2016,2016.0,Lower-Secondary
+TZA,United Republic of Tanzania,SSA,ESA,Least Developed,57.0,58.0,56.0,62.0,46.0,77.0,67.0,61.0,44.0,44.0,DHS 2015-16,2016.0,Lower-Secondary
+ZMB,Zambia,SSA,ESA,Least Developed,23.0,27.0,20.0,29.0,14.0,42.0,32.0,23.0,17.0,9.0,DHS 2018,2018.0,Lower-Secondary
+ZWE,Zimbabwe,SSA,ESA,Less Developed,19.0,16.0,22.0,22.0,9.0,28.0,24.0,16.0,14.0,5.0,MICS 2019,2019.0,Lower-Secondary
+AGO,Angola,SSA,ESA,Least Developed,29.0,35.0,21.0,53.0,19.0,58.0,50.0,27.0,17.0,9.0,DHS 2015-16,2016.0,Upper-Secondary
+BEN,Benin,SSA,WCA,Least Developed,58.0,66.0,50.0,65.0,50.0,82.0,73.0,61.0,48.0,36.0,DHS 2017-18,2018.0,Upper-Secondary
+BFA,Burkina Faso,SSA,WCA,Least Developed,74.0,79.0,69.0,83.0,54.0,90.0,87.0,81.0,74.0,53.0,DHS 2010,2010.0,Upper-Secondary
+BDI,Burundi,SSA,ESA,Least Developed,54.0,54.0,53.0,55.0,44.0,76.0,65.0,54.0,46.0,39.0,DHS 2016-17,2017.0,Upper-Secondary
+CMR,Cameroon,SSA,WCA,Less Developed,42.0,49.0,34.0,55.0,31.0,61.0,63.0,43.0,35.0,17.0,DHS 2018,2018.0,Upper-Secondary
+CAF,Central African Republic,SSA,WCA,Least Developed,63.0,77.0,43.0,76.0,45.0,84.0,75.0,72.0,54.0,38.0,MICS 2010,2010.0,Upper-Secondary
+TCD,Chad,SSA,WCA,Least Developed,55.0,69.0,43.0,65.0,30.0,70.0,66.0,64.0,61.0,28.0,DHS 2014-15,2015.0,Upper-Secondary
+COM,Comoros,SSA,ESA,Least Developed,27.0,29.0,25.0,30.0,21.0,45.0,36.0,24.0,20.0,17.0,DHS 2012,2012.0,Upper-Secondary
+COG,Congo,SSA,WCA,Less Developed,25.0,31.0,20.0,41.0,19.0,52.0,39.0,21.0,14.0,11.0,MICS 2014-15,2015.0,Upper-Secondary
+CIV,Côte d'Ivoire,SSA,WCA,Less Developed,56.0,66.0,46.0,70.0,47.0,86.0,62.0,54.0,50.0,44.0,MICS 2016,2016.0,Upper-Secondary
+COD,Democratic Republic of the Congo,SSA,WCA,Least Developed,29.0,33.0,24.0,36.0,21.0,44.0,34.0,29.0,26.0,14.0,MICS 2017-18,2018.0,Upper-Secondary
+SWZ,Eswatini,SSA,ESA,Less Developed,18.0,24.0,12.0,16.0,22.0,22.0,21.0,15.0,12.0,17.0,MICS 2014,2014.0,Upper-Secondary
+ETH,Ethiopia,SSA,ESA,Least Developed,54.0,59.0,48.0,58.0,41.0,68.0,67.0,56.0,48.0,43.0,DHS 2016,2016.0,Upper-Secondary
+GAB,Gabon,SSA,WCA,Less Developed,18.0,18.0,18.0,31.0,16.0,29.0,23.0,19.0,13.0,10.0,DHS 2012,2012.0,Upper-Secondary
+GMB,Gambia,SSA,WCA,Least Developed,50.0,55.0,44.0,63.0,40.0,64.0,59.0,59.0,45.0,29.0,DHS 2013,2013.0,Upper-Secondary
+GHA,Ghana,SSA,WCA,Less Developed,25.0,29.0,21.0,26.0,23.0,31.0,26.0,23.0,23.0,20.0,MICS 2017-18,2018.0,Upper-Secondary
+GIN,Guinea,SSA,WCA,Least Developed,63.0,73.0,50.0,81.0,40.0,86.0,84.0,73.0,56.0,33.0,DHS 2018,2018.0,Upper-Secondary
+GNB,Guinea-Bissau,SSA,WCA,Least Developed,32.0,36.0,29.0,35.0,28.0,33.0,36.0,34.0,31.0,27.0,MICS 2018-19,2019.0,Upper-Secondary
+KEN,Kenya,SSA,ESA,Less Developed,10.0,11.0,9.0,10.0,12.0,16.0,9.0,7.0,9.0,10.0,DHS 2014,2014.0,Upper-Secondary
+LSO,Lesotho,SSA,ESA,Least Developed,36.0,28.0,43.0,43.0,21.0,59.0,47.0,33.0,28.0,11.0,MICS 2018,2018.0,Upper-Secondary
+LBR,Liberia,SSA,WCA,Least Developed,27.0,35.0,20.0,38.0,22.0,50.0,36.0,31.0,26.0,13.0,DHS 2013,2013.0,Upper-Secondary
+MDG,Madagascar,SSA,ESA,Least Developed,66.0,67.0,65.0,72.0,47.0,89.0,84.0,74.0,59.0,32.0,MICS 2018,2018.0,Upper-Secondary
+MWI,Malawi,SSA,ESA,Least Developed,29.0,36.0,23.0,31.0,18.0,45.0,38.0,32.0,23.0,17.0,DHS 2015-16,2016.0,Upper-Secondary
+MLI,Mali,SSA,WCA,Least Developed,75.0,80.0,70.0,83.0,53.0,94.0,89.0,84.0,72.0,47.0,MICS 2015,2015.0,Upper-Secondary
+MRT,Mauritania,SSA,WCA,Least Developed,58.0,60.0,56.0,72.0,45.0,82.0,74.0,58.0,52.0,31.0,MICS 2015,2015.0,Upper-Secondary
+MOZ,Mozambique,SSA,ESA,Least Developed,53.0,63.0,43.0,66.0,35.0,76.0,72.0,68.0,51.0,21.0,DHS 2011,2011.0,Upper-Secondary
+NAM,Namibia,SSA,ESA,Less Developed,34.0,35.0,32.0,35.0,32.0,39.0,43.0,35.0,36.0,18.0,DHS 2013,2013.0,Upper-Secondary
+NER,Niger,SSA,WCA,Least Developed,86.0,91.0,79.0,95.0,58.0,99.0,97.0,97.0,92.0,62.0,DHS 2012,2012.0,Upper-Secondary
+NGA,Nigeria,SSA,WCA,Less Developed,33.0,34.0,31.0,47.0,14.0,75.0,46.0,24.0,10.0,6.0,DHS 2018,2018.0,Upper-Secondary
+RWA,Rwanda,SSA,ESA,Least Developed,59.0,59.0,58.0,59.0,56.0,72.0,65.0,61.0,53.0,51.0,DHS 2014-15,2015.0,Upper-Secondary
+STP,Sao Tome and Principe,SSA,WCA,Least Developed,21.0,20.0,22.0,27.0,19.0,42.0,31.0,22.0,12.0,8.0,MICS 2014,2014.0,Upper-Secondary
+SEN,Senegal,SSA,WCA,Least Developed,55.0,56.0,53.0,69.0,40.0,79.0,62.0,57.0,49.0,33.0,DHS 2019,2019.0,Upper-Secondary
+SLE,Sierra Leone,SSA,WCA,Least Developed,36.0,40.0,31.0,54.0,21.0,66.0,55.0,39.0,26.0,15.0,MICS 2017,2017.0,Upper-Secondary
+ZAF,South Africa,SSA,ESA,Less Developed,16.0,17.0,15.0,15.0,16.0,26.0,14.0,17.0,12.0,7.0,DHS 2016,2016.0,Upper-Secondary
+SSD,South Sudan,SSA,ESA,Least Developed,60.0,68.0,51.0,66.0,44.0,82.0,77.0,68.0,49.0,38.0,MICS 2010,2010.0,Upper-Secondary
+SDN,Sudan,SSA,ESA,Least Developed,32.0,36.0,29.0,39.0,17.0,46.0,42.0,40.0,22.0,9.0,MICS 2014,2014.0,Upper-Secondary
+TGO,Togo,SSA,WCA,Least Developed,30.0,40.0,20.0,32.0,27.0,38.0,30.0,30.0,29.0,24.0,MICS 2017,2017.0,Upper-Secondary
+UGA,Uganda,SSA,ESA,Least Developed,61.0,68.0,53.0,62.0,57.0,73.0,66.0,57.0,57.0,54.0,DHS 2016,2016.0,Upper-Secondary
+TZA,United Republic of Tanzania,SSA,ESA,Least Developed,78.0,81.0,74.0,82.0,70.0,93.0,87.0,81.0,72.0,63.0,DHS 2015-16,2016.0,Upper-Secondary
+ZMB,Zambia,SSA,ESA,Least Developed,52.0,61.0,44.0,58.0,46.0,73.0,59.0,51.0,50.0,36.0,DHS 2018,2018.0,Upper-Secondary
+ZWE,Zimbabwe,SSA,ESA,Less Developed,51.0,54.0,48.0,55.0,43.0,63.0,54.0,52.0,49.0,38.0,MICS 2019,2019.0,Upper-Secondary

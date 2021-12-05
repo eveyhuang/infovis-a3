@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+          
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v6.js"></script>
+
+<!-- Initialize a select button -->
+<select id="selectLevel"></select>
+          
+<!-- Create a div container to hold SVG -->
+<div id="sortedBarplot"></div>
+
+<script>
+
+    // set the dimensions and margins of the graph
+    const margin = {top: 40, right: 30, bottom: 70, left: 60},
+        width = 550 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
+    
+    // append the svg object to the body of the page
+    const svg = d3.select("#sortedBarplot")
+      .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    // Parse the Data
+    d3.csv("data/all_levels.csv").then( function(data) {
+
+        // Get set of schooling levels - LS, PRIMARY, US
+        const schoolLevels = new Set(data.map(d => d.Level))
+        // console.log(schoolLevels)
+
+       // Add school levels as options to dropdown menu
+        d3.select("#selectLevel")
+        .selectAll('schoolLevels')
+            .data(schoolLevels)
+        .enter()
+            .append('option')
+        .text(function (d) { return d + " School"; }) // Drop-Down Menu text
+        .attr("value", function (d) { return d; }) // Value returned by drop-down menu
+
+        // Set default school level
+        const defaultLevel = "Primary"
+
+        // Filter data by the defaut level and also sort it
+        const filteredData = data.filter(d => d.Level === defaultLevel).sort((a, b) => b.Total - a.Total)
+
+        // Set colors for each school level
+        const levelColour = d3.scaleOrdinal()
+        .domain(schoolLevels)
+        .range(d3.schemeSet2);
+
+        // X axis
+        const x = d3.scaleBand() // allows scaling of bars
+        .range([ 0, width ])
+        .domain(filteredData.map(d => d.Country)) // map the country names to the x axis
+        .padding(0.2);
+        
+        // Make x-axis + customise the positioning of xticks
+        svg.append("g")
+        .attr("transform", `translate(0, ${height})`)
+        .call(d3.axisBottom(x))
+        .selectAll("text")
+            .attr("transform", "translate(5,5)rotate(-30)") // rotation for readability
+            .style("text-anchor", "end") // for vertical alignment
+            .attr("font-size","11px"); // font size
+
+        // Add x-label
+        svg.append("text")
+        .attr("class", "xlabel")
+        .attr("text-anchor", "end")
+        .attr("x", (width + margin.left + margin.right)/2) // Position x-label
+        .attr("y", height + margin.bottom)
+        .text("Countries"); // Label
+
+        // Y axis
+        const y = d3.scaleLinear()
+        .domain([0, 100])
+        .range([ height, 0]);
+
+        // Make y-axis + customise the positioning of yticks
+        svg.append("g") 
+        .call(d3.axisLeft(y))
+        .selectAll("text")
+            .attr("font-size","11px"); // font size
+
+        // Add y-label
+        svg.append("text")
+        .attr("class", "ylabel")
+        .attr("text-anchor", "end")
+        .attr("y", -margin.left/1.5) // **SEE HERE**: mind these if you change the margins or width/height
+        .attr("x", margin.bottom - height/2.8) // **SEE HERE**: mind these if you change the margins or width/height
+        .attr("transform", "rotate(-90)")
+        .text("Percentage of Students Dropped Out"); // Label
+
+        // Make the bars with a chosen default school level to start with
+        const barplot = svg.selectAll("bars")
+        .data(filteredData) 
+        .join("rect")
+            .attr("x", d => x(d.Country))
+            .attr("y", d => y(d.Total))
+            .attr("width", x.bandwidth())
+            .attr("height", d => height - y(d.Total))
+            .attr("fill", function(d){ return levelColour(defaultLevel) })
+            // Animation: show no bars at the start
+            .attr("height", function(d) { return height - y(0); }) // always equal to 0
+            .attr("y", function(d) { return y(0); })
+            .on("mouseover",function(){
+      				d3.select(this)
+              	.attr("fill","red")
+    				}) 	
+            .on("mouseout",function(){
+      				d3.select(this)
+                      .attr("fill", function(d){ return levelColour(defaultLevel) })
+    				}) 
+            // .on("click", function() {
+			//    		sortBars();
+            //     });
+
+        // Animation
+        svg.selectAll("rect")
+        .transition()
+        .duration(400)
+        .attr("y", function(d) { return y(d.Total); })
+        .attr("height", function(d) { return height - y(d.Total); })
+        //.delay(function(d,i){console.log(i) ; return(i*100)})
+
+        // Function to update visualization based on school level selected
+        function update(selectedLevel) {
+
+            // Filter data by the selected level and also sort it
+            const filteredData = data.filter(d => d.Level === selectedLevel)//.sort((a, b) => b.Total - a.Total)
+
+            // Recalculate x-axis domain based on selected school level + sorted countries
+            // x.domain(filteredData.map(d => d.Country)) // map the country names to the x axis
+
+            // Update the barplot based on the selected school level
+            barplot.data(filteredData)
+            .join("rect")
+            .attr("x", d => x(d.Country))
+            .attr("y", d => y(d.Total))
+            .attr("width", x.bandwidth())
+            .attr("height", d => height - y(d.Total))
+            //.attr("fill", 'dodgerblue');
+            .attr("fill", function(d){ return levelColour(selectedLevel) })
+            // Animation: show no bars at the start
+            .attr("height", function(d) { return height - y(0); }) // always equal to 0
+            .attr("y", function(d) { return y(0); })
+            .on("mouseover",function(){
+      				d3.select(this)
+              	.attr("fill","red")
+    				}) 	
+            .on("mouseout",function(){
+      				d3.select(this)
+                      .attr("fill", function(d){ return levelColour(selectedLevel) })
+    				}) 
+            // .on("click", function() {
+			//    		sortBars();
+            //     });
+
+            // Animation
+            svg.selectAll("rect")
+            .transition()
+            .duration(400)
+            .attr("y", function(d) { return y(d.Total); })
+            .attr("height", function(d) { return height - y(d.Total); })
+
+        }
+
+        // Call to update visualization when button changes
+        d3.select("#selectLevel").on("change", function(event,d) {
+            // recover the option that has been chosen
+            const selectedLevel = d3.select(this).property("value")
+            // run the update function with this selected option
+            update(selectedLevel)
+        })
+
+        // Add a title woohoo!
+        svg.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 0 - (margin.top / 2))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "18px") 
+        .style("text-decoration", "underline")  
+        .text("South-East Asian Countries, Ranked by Percentage of Dropouts");
+
+        // //Define sort order flag
+        // var sortOrder = false;
+        
+        // //Define sort function
+        // var sortBars = function() {
+
+        //     //Flip value of sortOrder
+        //     sortOrder = !sortOrder;
+
+        //     svg.selectAll("rect")
+        //         .sort(function(a, b) {
+        //             if (sortOrder) {
+        //                 return d3.ascending(a, b);
+        //             } else {
+        //                 return d3.descending(a, b);
+        //             }
+        //         })
+        //         .transition()
+        //         .delay(function(d, i) {
+        //             return i * 50;
+        //         })
+        //         .duration(1000)
+        //         .attr("x", function(d, i) {
+        //             return xScale(i);
+        //         });
+
+        // };			
+
+
+
+    })
+
+</script>
+</html> 

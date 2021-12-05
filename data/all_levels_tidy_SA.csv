@@ -1,0 +1,121 @@
+ISO3,Country,Level,DemoType,DemoCategory,DemoValue,TotalValue
+AFG,Afghanistan,Primary,Total,Total,37.0,37.0
+AFG,Afghanistan,Primary,Gender,Male,28.0,37.0
+AFG,Afghanistan,Primary,Gender,Female,47.0,37.0
+AFG,Afghanistan,Primary,Residence,RuralResidence,42.0,37.0
+AFG,Afghanistan,Primary,Residence,UrbanResidence,19.0,37.0
+BGD,Bangladesh,Primary,Total,Total,6.0,6.0
+BGD,Bangladesh,Primary,Gender,Male,8.0,6.0
+BGD,Bangladesh,Primary,Gender,Female,5.0,6.0
+BGD,Bangladesh,Primary,Residence,RuralResidence,6.0,6.0
+BGD,Bangladesh,Primary,Residence,UrbanResidence,6.0,6.0
+BTN,Bhutan,Primary,Total,Total,8.0,8.0
+BTN,Bhutan,Primary,Gender,Male,9.0,8.0
+BTN,Bhutan,Primary,Gender,Female,7.0,8.0
+BTN,Bhutan,Primary,Residence,RuralResidence,10.0,8.0
+BTN,Bhutan,Primary,Residence,UrbanResidence,3.0,8.0
+IND,India,Primary,Total,Total,6.0,6.0
+IND,India,Primary,Gender,Male,6.0,6.0
+IND,India,Primary,Gender,Female,6.0,6.0
+IND,India,Primary,Residence,RuralResidence,7.0,6.0
+IND,India,Primary,Residence,UrbanResidence,4.0,6.0
+MDV,Maldives,Primary,Total,Total,1.0,1.0
+MDV,Maldives,Primary,Gender,Male,1.0,1.0
+MDV,Maldives,Primary,Gender,Female,1.0,1.0
+MDV,Maldives,Primary,Residence,RuralResidence,1.0,1.0
+MDV,Maldives,Primary,Residence,UrbanResidence,1.0,1.0
+NPL,Nepal,Primary,Total,Total,6.0,6.0
+NPL,Nepal,Primary,Gender,Male,5.0,6.0
+NPL,Nepal,Primary,Gender,Female,7.0,6.0
+NPL,Nepal,Primary,Residence,RuralResidence,6.0,6.0
+NPL,Nepal,Primary,Residence,UrbanResidence,5.0,6.0
+PAK,Pakistan,Primary,Total,Total,23.0,23.0
+PAK,Pakistan,Primary,Gender,Male,19.0,23.0
+PAK,Pakistan,Primary,Gender,Female,27.0,23.0
+PAK,Pakistan,Primary,Residence,RuralResidence,28.0,23.0
+PAK,Pakistan,Primary,Residence,UrbanResidence,12.0,23.0
+LKA,Sri Lanka,Primary,Total,Total,2.0,2.0
+LKA,Sri Lanka,Primary,Gender,Male,2.0,2.0
+LKA,Sri Lanka,Primary,Gender,Female,2.0,2.0
+LKA,Sri Lanka,Primary,Residence,RuralResidence,2.0,2.0
+LKA,Sri Lanka,Primary,Residence,UrbanResidence,3.0,2.0
+AFG,Afghanistan,Lower-Secondary,Total,Total,40.0,40.0
+AFG,Afghanistan,Lower-Secondary,Gender,Male,25.0,40.0
+AFG,Afghanistan,Lower-Secondary,Gender,Female,56.0,40.0
+AFG,Afghanistan,Lower-Secondary,Residence,RuralResidence,46.0,40.0
+AFG,Afghanistan,Lower-Secondary,Residence,UrbanResidence,23.0,40.0
+BGD,Bangladesh,Lower-Secondary,Total,Total,13.0,13.0
+BGD,Bangladesh,Lower-Secondary,Gender,Male,18.0,13.0
+BGD,Bangladesh,Lower-Secondary,Gender,Female,8.0,13.0
+BGD,Bangladesh,Lower-Secondary,Residence,RuralResidence,13.0,13.0
+BGD,Bangladesh,Lower-Secondary,Residence,UrbanResidence,12.0,13.0
+BTN,Bhutan,Lower-Secondary,Total,Total,19.0,19.0
+BTN,Bhutan,Lower-Secondary,Gender,Male,20.0,19.0
+BTN,Bhutan,Lower-Secondary,Gender,Female,18.0,19.0
+BTN,Bhutan,Lower-Secondary,Residence,RuralResidence,23.0,19.0
+BTN,Bhutan,Lower-Secondary,Residence,UrbanResidence,10.0,19.0
+IND,India,Lower-Secondary,Total,Total,7.0,7.0
+IND,India,Lower-Secondary,Gender,Male,7.0,7.0
+IND,India,Lower-Secondary,Gender,Female,8.0,7.0
+IND,India,Lower-Secondary,Residence,RuralResidence,8.0,7.0
+IND,India,Lower-Secondary,Residence,UrbanResidence,6.0,7.0
+MDV,Maldives,Lower-Secondary,Total,Total,4.0,4.0
+MDV,Maldives,Lower-Secondary,Gender,Male,4.0,4.0
+MDV,Maldives,Lower-Secondary,Gender,Female,4.0,4.0
+MDV,Maldives,Lower-Secondary,Residence,RuralResidence,6.0,4.0
+MDV,Maldives,Lower-Secondary,Residence,UrbanResidence,0.0,4.0
+NPL,Nepal,Lower-Secondary,Total,Total,4.0,4.0
+NPL,Nepal,Lower-Secondary,Gender,Male,4.0,4.0
+NPL,Nepal,Lower-Secondary,Gender,Female,4.0,4.0
+NPL,Nepal,Lower-Secondary,Residence,RuralResidence,5.0,4.0
+NPL,Nepal,Lower-Secondary,Residence,UrbanResidence,4.0,4.0
+PAK,Pakistan,Lower-Secondary,Total,Total,27.0,27.0
+PAK,Pakistan,Lower-Secondary,Gender,Male,22.0,27.0
+PAK,Pakistan,Lower-Secondary,Gender,Female,32.0,27.0
+PAK,Pakistan,Lower-Secondary,Residence,RuralResidence,31.0,27.0
+PAK,Pakistan,Lower-Secondary,Residence,UrbanResidence,18.0,27.0
+LKA,Sri Lanka,Lower-Secondary,Total,Total,1.0,1.0
+LKA,Sri Lanka,Lower-Secondary,Gender,Male,1.0,1.0
+LKA,Sri Lanka,Lower-Secondary,Gender,Female,1.0,1.0
+LKA,Sri Lanka,Lower-Secondary,Residence,RuralResidence,1.0,1.0
+LKA,Sri Lanka,Lower-Secondary,Residence,UrbanResidence,1.0,1.0
+AFG,Afghanistan,Upper-Secondary,Total,Total,58.0,58.0
+AFG,Afghanistan,Upper-Secondary,Gender,Male,43.0,58.0
+AFG,Afghanistan,Upper-Secondary,Gender,Female,73.0,58.0
+AFG,Afghanistan,Upper-Secondary,Residence,RuralResidence,63.0,58.0
+AFG,Afghanistan,Upper-Secondary,Residence,UrbanResidence,45.0,58.0
+BGD,Bangladesh,Upper-Secondary,Total,Total,31.0,31.0
+BGD,Bangladesh,Upper-Secondary,Gender,Male,37.0,31.0
+BGD,Bangladesh,Upper-Secondary,Gender,Female,26.0,31.0
+BGD,Bangladesh,Upper-Secondary,Residence,RuralResidence,32.0,31.0
+BGD,Bangladesh,Upper-Secondary,Residence,UrbanResidence,30.0,31.0
+BTN,Bhutan,Upper-Secondary,Total,Total,39.0,39.0
+BTN,Bhutan,Upper-Secondary,Gender,Male,39.0,39.0
+BTN,Bhutan,Upper-Secondary,Gender,Female,40.0,39.0
+BTN,Bhutan,Upper-Secondary,Residence,RuralResidence,44.0,39.0
+BTN,Bhutan,Upper-Secondary,Residence,UrbanResidence,27.0,39.0
+IND,India,Upper-Secondary,Total,Total,23.0,23.0
+IND,India,Upper-Secondary,Gender,Male,21.0,23.0
+IND,India,Upper-Secondary,Gender,Female,26.0,23.0
+IND,India,Upper-Secondary,Residence,RuralResidence,26.0,23.0
+IND,India,Upper-Secondary,Residence,UrbanResidence,17.0,23.0
+MDV,Maldives,Upper-Secondary,Total,Total,25.0,25.0
+MDV,Maldives,Upper-Secondary,Gender,Male,27.0,25.0
+MDV,Maldives,Upper-Secondary,Gender,Female,23.0,25.0
+MDV,Maldives,Upper-Secondary,Residence,RuralResidence,37.0,25.0
+MDV,Maldives,Upper-Secondary,Residence,UrbanResidence,12.0,25.0
+NPL,Nepal,Upper-Secondary,Total,Total,15.0,15.0
+NPL,Nepal,Upper-Secondary,Gender,Male,15.0,15.0
+NPL,Nepal,Upper-Secondary,Gender,Female,15.0,15.0
+NPL,Nepal,Upper-Secondary,Residence,RuralResidence,17.0,15.0
+NPL,Nepal,Upper-Secondary,Residence,UrbanResidence,14.0,15.0
+PAK,Pakistan,Upper-Secondary,Total,Total,46.0,46.0
+PAK,Pakistan,Upper-Secondary,Gender,Male,38.0,46.0
+PAK,Pakistan,Upper-Secondary,Gender,Female,54.0,46.0
+PAK,Pakistan,Upper-Secondary,Residence,RuralResidence,54.0,46.0
+PAK,Pakistan,Upper-Secondary,Residence,UrbanResidence,31.0,46.0
+LKA,Sri Lanka,Upper-Secondary,Total,Total,19.0,19.0
+LKA,Sri Lanka,Upper-Secondary,Gender,Male,23.0,19.0
+LKA,Sri Lanka,Upper-Secondary,Gender,Female,16.0,19.0
+LKA,Sri Lanka,Upper-Secondary,Residence,RuralResidence,19.0,19.0
+LKA,Sri Lanka,Upper-Secondary,Residence,UrbanResidence,19.0,19.0
