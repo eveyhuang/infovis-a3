@@ -67,6 +67,7 @@ tooltip = d3.select("body").append("div")
 Promise.all([
     d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"),
     d3.csv("data/all_levels.csv", function(d){
+        // console.log(d);
         data.set(d.ISO3, +d.Total)
     })
 ]).then(function(loadData){
