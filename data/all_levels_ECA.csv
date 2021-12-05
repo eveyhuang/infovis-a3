@@ -1,0 +1,163 @@
+ISO3,Country,Region,SubRegion,DevelopmentRegion,Total,Female,Male,RuralResidence,UrbanResidence,PoorestWealthQuintile,SecondWealthQuintile,MiddleWealthQuintile,FourthWealthQuintile,RichestWealthQuintile,DataSource,TimePeriod,Level
+ALB,Albania,ECA,EECA,More Developed,2.0,2.0,3.0,4.0,1.0,4.0,3.0,2.0,2.0,1.0,DHS 2017-18,2018.0,Primary
+AND,Andorra,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+ARM,Armenia,ECA,EECA,Less Developed,5.0,4.0,5.0,6.0,3.0,6.0,7.0,6.0,3.0,2.0,DHS 2015-16,2016.0,Primary
+AUT,Austria,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+AZE,Azerbaijan,ECA,EECA,Less Developed,,,,,,,,,,,,,Primary
+BLR,Belarus,ECA,EECA,More Developed,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,MICS 2012,2012.0,Primary
+BEL,Belgium,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+BIH,Bosnia and Herzegovina,ECA,EECA,More Developed,3.0,4.0,2.0,3.0,3.0,7.0,1.0,3.0,1.0,3.0,MICS 2011-12,2012.0,Primary
+BGR,Bulgaria,ECA,EECA,More Developed,,,,,,,,,,,,,Primary
+HRV,Croatia,ECA,EECA,More Developed,,,,,,,,,,,,,Primary
+CYP,Cyprus,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+CZE,Czechia,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+DNK,Denmark,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+EST,Estonia,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+FIN,Finland,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+FRA,France,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+GEO,Georgia,ECA,EECA,Less Developed,1.0,1.0,1.0,2.0,1.0,2.0,2.0,1.0,1.0,1.0,MICS 2018,2018.0,Primary
+DEU,Germany,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+GRC,Greece,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+VAT,Holy See,ECA,WE,Not Classified,,,,,,,,,,,,,Primary
+HUN,Hungary,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+ISL,Iceland,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+IRL,Ireland,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+ITA,Italy,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+KAZ,Kazakhstan,ECA,EECA,Less Developed,0.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,1.0,1.0,MICS 2015,2015.0,Primary
+KGZ,Kyrgyzstan,ECA,EECA,Less Developed,1.0,1.0,1.0,1.0,1.0,2.0,2.0,1.0,0.0,1.0,MICS 2018,2018.0,Primary
+LVA,Latvia,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+LIE,Liechtenstein,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+LTU,Lithuania,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+LUX,Luxembourg,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+MLT,Malta,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+MCO,Monaco,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+MNE,Montenegro,ECA,EECA,More Developed,3.0,3.0,4.0,3.0,4.0,8.0,2.0,2.0,3.0,1.0,MICS 2018,2018.0,Primary
+NLD,Netherlands,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+MKD,North Macedonia,ECA,EECA,More Developed,2.0,1.0,2.0,1.0,2.0,3.0,3.0,1.0,1.0,0.0,MICS 2018-19,2019.0,Primary
+NOR,Norway,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+POL,Poland,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+PRT,Portugal,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+MDA,Republic of Moldova,ECA,EECA,More Developed,1.0,1.0,1.0,0.0,1.0,1.0,1.0,1.0,1.0,0.0,MICS 2012,2012.0,Primary
+ROU,Romania,ECA,EECA,More Developed,8.0,9.0,8.0,,,,,,,,Institute of Educational Sciences and UNICEF 2015-2016,2016.0,Primary
+RUS,Russian Federation,ECA,EECA,More Developed,,,,,,,,,,,,,Primary
+SMR,San Marino,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+SRB,Serbia,ECA,EECA,More Developed,1.0,0.0,1.0,1.0,0.0,0.0,3.0,0.0,0.0,0.0,MICS 2014,2014.0,Primary
+SVK,Slovakia,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+SVN,Slovenia,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+ESP,Spain,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+SWE,Sweden,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+CHE,Switzerland,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+TJK,Tajikistan,ECA,EECA,Less Developed,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,1.0,2.0,DHS 2017,2017.0,Primary
+TUR,Turkey,ECA,EECA,Less Developed,4.0,3.0,5.0,4.0,4.0,7.0,3.0,3.0,4.0,2.0,DHS style 2013,2013.0,Primary
+TKM,Turkmenistan,ECA,EECA,Less Developed,1.0,2.0,1.0,1.0,1.0,2.0,1.0,1.0,1.0,0.0,MICS 2015-16,2016.0,Primary
+UKR,Ukraine,ECA,EECA,More Developed,2.0,2.0,2.0,3.0,1.0,2.0,3.0,2.0,1.0,1.0,MICS 2012,2012.0,Primary
+GBR,United Kingdom,ECA,WE,More Developed,,,,,,,,,,,,,Primary
+UZB,Uzbekistan,ECA,EECA,Less Developed,,,,,,,,,,,,,Primary
+ALB,Albania,ECA,EECA,More Developed,2.0,2.0,2.0,2.0,2.0,4.0,2.0,2.0,1.0,1.0,DHS 2017-18,2018.0,Lower-Secondary
+AND,Andorra,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+ARM,Armenia,ECA,EECA,Less Developed,1.0,1.0,1.0,0.0,1.0,1.0,1.0,2.0,0.0,0.0,DHS 2015-16,2016.0,Lower-Secondary
+AUT,Austria,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+AZE,Azerbaijan,ECA,EECA,Less Developed,,,,,,,,,,,,,Lower-Secondary
+BLR,Belarus,ECA,EECA,More Developed,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,MICS 2012,2012.0,Lower-Secondary
+BEL,Belgium,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+BIH,Bosnia and Herzegovina,ECA,EECA,More Developed,1.0,1.0,1.0,1.0,1.0,4.0,0.0,1.0,0.0,0.0,MICS 2011-12,2012.0,Lower-Secondary
+BGR,Bulgaria,ECA,EECA,More Developed,,,,,,,,,,,,,Lower-Secondary
+HRV,Croatia,ECA,EECA,More Developed,,,,,,,,,,,,,Lower-Secondary
+CYP,Cyprus,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+CZE,Czechia,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+DNK,Denmark,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+EST,Estonia,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+FIN,Finland,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+FRA,France,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+GEO,Georgia,ECA,EECA,Less Developed,1.0,1.0,2.0,1.0,1.0,2.0,0.0,1.0,2.0,0.0,MICS 2018,2018.0,Lower-Secondary
+DEU,Germany,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+GRC,Greece,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+VAT,Holy See,ECA,WE,Not Classified,,,,,,,,,,,,,Lower-Secondary
+HUN,Hungary,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+ISL,Iceland,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+IRL,Ireland,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+ITA,Italy,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+KAZ,Kazakhstan,ECA,EECA,Less Developed,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,MICS 2015,2015.0,Lower-Secondary
+KGZ,Kyrgyzstan,ECA,EECA,Less Developed,1.0,1.0,2.0,1.0,1.0,2.0,1.0,2.0,1.0,1.0,MICS 2018,2018.0,Lower-Secondary
+LVA,Latvia,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+LIE,Liechtenstein,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+LTU,Lithuania,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+LUX,Luxembourg,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+MLT,Malta,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+MCO,Monaco,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+MNE,Montenegro,ECA,EECA,More Developed,1.0,2.0,1.0,3.0,0.0,6.0,0.0,0.0,0.0,0.0,MICS 2018,2018.0,Lower-Secondary
+NLD,Netherlands,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+MKD,North Macedonia,ECA,EECA,More Developed,2.0,2.0,1.0,0.0,3.0,4.0,3.0,0.0,0.0,0.0,MICS 2018-19,2019.0,Lower-Secondary
+NOR,Norway,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+POL,Poland,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+PRT,Portugal,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+MDA,Republic of Moldova,ECA,EECA,More Developed,3.0,1.0,4.0,2.0,3.0,8.0,3.0,2.0,1.0,1.0,MICS 2012,2012.0,Lower-Secondary
+ROU,Romania,ECA,EECA,More Developed,10.0,10.0,10.0,,,,,,,,Institute of Educational Sciences and UNICEF 2015-2016,2016.0,Lower-Secondary
+RUS,Russian Federation,ECA,EECA,More Developed,,,,,,,,,,,,,Lower-Secondary
+SMR,San Marino,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+SRB,Serbia,ECA,EECA,More Developed,1.0,1.0,1.0,2.0,0.0,5.0,0.0,0.0,0.0,0.0,MICS 2014,2014.0,Lower-Secondary
+SVK,Slovakia,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+SVN,Slovenia,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+ESP,Spain,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+SWE,Sweden,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+CHE,Switzerland,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+TJK,Tajikistan,ECA,EECA,Less Developed,3.0,4.0,1.0,3.0,2.0,4.0,3.0,2.0,2.0,2.0,DHS 2017,2017.0,Lower-Secondary
+TUR,Turkey,ECA,EECA,Less Developed,3.0,3.0,2.0,3.0,2.0,6.0,2.0,1.0,2.0,0.0,DHS style 2013,2013.0,Lower-Secondary
+TKM,Turkmenistan,ECA,EECA,Less Developed,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,MICS 2015-16,2016.0,Lower-Secondary
+UKR,Ukraine,ECA,EECA,More Developed,1.0,1.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,2.0,MICS 2012,2012.0,Lower-Secondary
+GBR,United Kingdom,ECA,WE,More Developed,,,,,,,,,,,,,Lower-Secondary
+UZB,Uzbekistan,ECA,EECA,Less Developed,,,,,,,,,,,,,Lower-Secondary
+ALB,Albania,ECA,EECA,More Developed,12.0,12.0,12.0,16.0,9.0,27.0,11.0,11.0,5.0,5.0,DHS 2017-18,2018.0,Upper-Secondary
+AND,Andorra,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+ARM,Armenia,ECA,EECA,Less Developed,7.0,4.0,9.0,9.0,5.0,12.0,6.0,10.0,5.0,2.0,DHS 2015-16,2016.0,Upper-Secondary
+AUT,Austria,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+AZE,Azerbaijan,ECA,EECA,Less Developed,,,,,,,,,,,,,Upper-Secondary
+BLR,Belarus,ECA,EECA,More Developed,1.0,2.0,1.0,1.0,1.0,0.0,3.0,0.0,0.0,3.0,MICS 2012,2012.0,Upper-Secondary
+BEL,Belgium,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+BIH,Bosnia and Herzegovina,ECA,EECA,More Developed,7.0,6.0,8.0,7.0,7.0,15.0,8.0,8.0,3.0,3.0,MICS 2011-12,2012.0,Upper-Secondary
+BGR,Bulgaria,ECA,EECA,More Developed,,,,,,,,,,,,,Upper-Secondary
+HRV,Croatia,ECA,EECA,More Developed,,,,,,,,,,,,,Upper-Secondary
+CYP,Cyprus,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+CZE,Czechia,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+DNK,Denmark,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+EST,Estonia,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+FIN,Finland,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+FRA,France,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+GEO,Georgia,ECA,EECA,Less Developed,11.0,8.0,14.0,13.0,10.0,20.0,7.0,14.0,14.0,4.0,MICS 2018,2018.0,Upper-Secondary
+DEU,Germany,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+GRC,Greece,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+VAT,Holy See,ECA,WE,Not Classified,,,,,,,,,,,,,Upper-Secondary
+HUN,Hungary,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+ISL,Iceland,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+IRL,Ireland,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+ITA,Italy,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+KAZ,Kazakhstan,ECA,EECA,Less Developed,3.0,2.0,3.0,4.0,1.0,2.0,4.0,2.0,1.0,3.0,MICS 2015,2015.0,Upper-Secondary
+KGZ,Kyrgyzstan,ECA,EECA,Less Developed,11.0,13.0,10.0,13.0,9.0,20.0,11.0,12.0,10.0,4.0,MICS 2018,2018.0,Upper-Secondary
+LVA,Latvia,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+LIE,Liechtenstein,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+LTU,Lithuania,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+LUX,Luxembourg,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+MLT,Malta,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+MCO,Monaco,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+MNE,Montenegro,ECA,EECA,More Developed,8.0,6.0,9.0,12.0,5.0,25.0,5.0,6.0,1.0,1.0,MICS 2018,2018.0,Upper-Secondary
+NLD,Netherlands,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+MKD,North Macedonia,ECA,EECA,More Developed,12.0,12.0,13.0,11.0,13.0,29.0,12.0,8.0,3.0,5.0,MICS 2018-19,2019.0,Upper-Secondary
+NOR,Norway,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+POL,Poland,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+PRT,Portugal,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+MDA,Republic of Moldova,ECA,EECA,More Developed,25.0,20.0,30.0,32.0,10.0,60.0,38.0,25.0,8.0,5.0,MICS 2012,2012.0,Upper-Secondary
+ROU,Romania,ECA,EECA,More Developed,,,,,,,,,,,,,Upper-Secondary
+RUS,Russian Federation,ECA,EECA,More Developed,,,,,,,,,,,,,Upper-Secondary
+SMR,San Marino,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+SRB,Serbia,ECA,EECA,More Developed,9.0,5.0,12.0,10.0,8.0,23.0,11.0,5.0,7.0,1.0,MICS 2014,2014.0,Upper-Secondary
+SVK,Slovakia,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+SVN,Slovenia,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+ESP,Spain,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+SWE,Sweden,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+CHE,Switzerland,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+TJK,Tajikistan,ECA,EECA,Less Developed,28.0,37.0,18.0,28.0,27.0,30.0,25.0,33.0,25.0,25.0,DHS 2017,2017.0,Upper-Secondary
+TUR,Turkey,ECA,EECA,Less Developed,,,,,,,,,,,,,Upper-Secondary
+TKM,Turkmenistan,ECA,EECA,Less Developed,1.0,1.0,1.0,1.0,1.0,2.0,1.0,0.0,1.0,1.0,MICS 2015-16,2016.0,Upper-Secondary
+UKR,Ukraine,ECA,EECA,More Developed,2.0,1.0,2.0,4.0,0.0,6.0,3.0,0.0,0.0,0.0,MICS 2012,2012.0,Upper-Secondary
+GBR,United Kingdom,ECA,WE,More Developed,,,,,,,,,,,,,Upper-Secondary
+UZB,Uzbekistan,ECA,EECA,Less Developed,,,,,,,,,,,,,Upper-Secondary

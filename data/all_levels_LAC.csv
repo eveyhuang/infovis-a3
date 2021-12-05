@@ -1,0 +1,112 @@
+ISO3,Country,Region,SubRegion,DevelopmentRegion,Total,Female,Male,RuralResidence,UrbanResidence,PoorestWealthQuintile,SecondWealthQuintile,MiddleWealthQuintile,FourthWealthQuintile,RichestWealthQuintile,DataSource,TimePeriod,Level
+AIA,Anguilla,LAC,LAC,Not Classified,,,,,,,,,,,,,Primary
+ATG,Antigua and Barbuda,LAC,LAC,Less Developed,,,,,,,,,,,,,Primary
+ARG,Argentina,LAC,LAC,Less Developed,1.0,1.0,2.0,0.0,0.0,1.0,0.0,2.0,2.0,1.0,MICS 2011-12,2012.0,Primary
+BHS,Bahamas,LAC,LAC,Less Developed,,,,,,,,,,,,,Primary
+BRB,Barbados,LAC,LAC,Less Developed,1.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,2.0,0.0,MICS 2012,2012.0,Primary
+BLZ,Belize,LAC,LAC,Less Developed,2.0,2.0,2.0,3.0,1.0,4.0,4.0,1.0,1.0,0.0,MICS 2015-16,2016.0,Primary
+BOL,Bolivia (Plurinational State of),LAC,LAC,Less Developed,,,,,,,,,,,,,Primary
+BRA,Brazil,LAC,LAC,Less Developed,0.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,PNAD 2019,2019.0,Primary
+VGB,British Virgin Islands,LAC,LAC,Not Classified,,,,,,,,,,,,,Primary
+CHL,Chile,LAC,LAC,Less Developed,1.0,1.0,2.0,1.0,2.0,,,,,,CASEN 2017,2017.0,Primary
+COL,Colombia,LAC,LAC,Less Developed,2.0,2.0,2.0,2.0,2.0,3.0,2.0,1.0,1.0,2.0,DHS 2015,2015.0,Primary
+CRI,Costa Rica,LAC,LAC,Less Developed,1.0,1.0,1.0,1.0,1.0,1.0,2.0,2.0,1.0,0.0,MICS 2018,2018.0,Primary
+CUB,Cuba,LAC,LAC,Less Developed,,,,,,,,,,,,,Primary
+DMA,Dominica,LAC,LAC,Less Developed,,,,,,,,,,,,,Primary
+DOM,Dominican Republic,LAC,LAC,Less Developed,3.0,2.0,4.0,3.0,3.0,6.0,4.0,2.0,3.0,1.0,MICS 2014,2014.0,Primary
+ECU,Ecuador,LAC,LAC,Less Developed,1.0,2.0,1.0,1.0,2.0,,,,,,GEPH-ENEMDU-DICIEMBRE - 2019,2019.0,Primary
+SLV,El Salvador,LAC,LAC,Less Developed,4.0,3.0,4.0,5.0,3.0,8.0,4.0,2.0,2.0,0.0,MICS 2014,2014.0,Primary
+GRD,Grenada,LAC,LAC,Less Developed,,,,,,,,,,,,,Primary
+GTM,Guatemala,LAC,LAC,Less Developed,6.0,6.0,5.0,6.0,4.0,9.0,7.0,5.0,2.0,2.0,DHS 2014-15,2015.0,Primary
+GUY,Guyana,LAC,LAC,Less Developed,1.0,1.0,1.0,1.0,1.0,2.0,0.0,0.0,0.0,1.0,MICS 2014,2014.0,Primary
+HTI,Haiti,LAC,LAC,Least Developed,8.0,8.0,9.0,11.0,4.0,21.0,8.0,4.0,3.0,2.0,DHS 2016-17,2017.0,Primary
+HND,Honduras,LAC,LAC,Less Developed,7.0,6.0,7.0,7.0,6.0,7.0,5.0,4.0,5.0,14.0,Encuesta Permanente de Hogares 2018,2018.0,Primary
+JAM,Jamaica,LAC,LAC,Less Developed,0.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,MICS 2011,2011.0,Primary
+MEX,Mexico,LAC,LAC,Less Developed,1.0,1.0,1.0,2.0,1.0,,,,,,ENIGH 2018,2018.0,Primary
+MSR,Montserrat,LAC,LAC,Not Classified,,,,,,,,,,,,,Primary
+NIC,Nicaragua,LAC,LAC,Less Developed,,,,,,,,,,,,,Primary
+PAN,Panama,LAC,LAC,Less Developed,1.0,1.0,1.0,1.0,1.0,2.0,2.0,0.0,0.0,0.0,MICS 2013,2013.0,Primary
+PRY,Paraguay,LAC,LAC,Less Developed,1.0,1.0,1.0,1.0,0.0,2.0,0.0,0.0,0.0,0.0,Encuesta Permanente de Hogares 2017,2017.0,Primary
+PER,Peru,LAC,LAC,Less Developed,3.0,2.0,3.0,2.0,3.0,3.0,3.0,2.0,2.0,2.0,DHS 2012,2012.0,Primary
+KNA,Saint Kitts and Nevis,LAC,LAC,Less Developed,,,,,,,,,,,,,Primary
+LCA,Saint Lucia,LAC,LAC,Less Developed,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,MICS 2012,2012.0,Primary
+VCT,Saint Vincent and the Grenadines,LAC,LAC,Less Developed,,,,,,,,,,,,,Primary
+SUR,Suriname,LAC,LAC,Less Developed,2.0,2.0,3.0,3.0,2.0,5.0,2.0,1.0,1.0,2.0,MICS 2018,2018.0,Primary
+TTO,Trinidad and Tobago,LAC,LAC,Less Developed,1.0,1.0,1.0,1.0,1.0,2.0,1.0,1.0,1.0,0.0,MICS 2011,2011.0,Primary
+TCA,Turks and Caicos Islands,LAC,LAC,Not Classified,,,,,,,,,,,,,Primary
+URY,Uruguay,LAC,LAC,Less Developed,1.0,1.0,1.0,0.0,1.0,1.0,0.0,0.0,3.0,1.0,MICS 2012-13,2013.0,Primary
+VEN,Venezuela (Bolivarian Republic of),LAC,LAC,Less Developed,,,,,,,,,,,,,Primary
+AIA,Anguilla,LAC,LAC,Not Classified,,,,,,,,,,,,,Lower-Secondary
+ATG,Antigua and Barbuda,LAC,LAC,Less Developed,,,,,,,,,,,,,Lower-Secondary
+ARG,Argentina,LAC,LAC,Less Developed,2.0,2.0,2.0,,,4.0,3.0,0.0,0.0,1.0,MICS 2011-12,2012.0,Lower-Secondary
+BHS,Bahamas,LAC,LAC,Less Developed,,,,,,,,,,,,,Lower-Secondary
+BRB,Barbados,LAC,LAC,Less Developed,1.0,1.0,1.0,1.0,1.0,0.0,1.0,2.0,2.0,0.0,MICS 2012,2012.0,Lower-Secondary
+BLZ,Belize,LAC,LAC,Less Developed,9.0,9.0,10.0,12.0,4.0,15.0,13.0,9.0,4.0,2.0,MICS 2015-16,2016.0,Lower-Secondary
+BOL,Bolivia (Plurinational State of),LAC,LAC,Less Developed,,,,,,,,,,,,,Lower-Secondary
+BRA,Brazil,LAC,LAC,Less Developed,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,PNAD 2019,2019.0,Lower-Secondary
+VGB,British Virgin Islands,LAC,LAC,Not Classified,,,,,,,,,,,,,Lower-Secondary
+CHL,Chile,LAC,LAC,Less Developed,1.0,1.0,0.0,0.0,1.0,,,,,,CASEN 2017,2017.0,Lower-Secondary
+COL,Colombia,LAC,LAC,Less Developed,4.0,3.0,4.0,6.0,3.0,8.0,3.0,3.0,1.0,1.0,DHS 2015,2015.0,Lower-Secondary
+CRI,Costa Rica,LAC,LAC,Less Developed,3.0,3.0,2.0,3.0,2.0,4.0,2.0,3.0,3.0,0.0,MICS 2018,2018.0,Lower-Secondary
+CUB,Cuba,LAC,LAC,Less Developed,,,,,,,,,,,,,Lower-Secondary
+DMA,Dominica,LAC,LAC,Less Developed,,,,,,,,,,,,,Lower-Secondary
+DOM,Dominican Republic,LAC,LAC,Less Developed,3.0,3.0,4.0,2.0,4.0,7.0,4.0,2.0,2.0,1.0,MICS 2014,2014.0,Lower-Secondary
+ECU,Ecuador,LAC,LAC,Less Developed,6.0,5.0,7.0,8.0,5.0,,,,,,GEPH-ENEMDU-DICIEMBRE - 2019,2019.0,Lower-Secondary
+SLV,El Salvador,LAC,LAC,Less Developed,15.0,15.0,14.0,20.0,11.0,28.0,17.0,10.0,7.0,6.0,MICS 2014,2014.0,Lower-Secondary
+GRD,Grenada,LAC,LAC,Less Developed,,,,,,,,,,,,,Lower-Secondary
+GTM,Guatemala,LAC,LAC,Less Developed,29.0,34.0,24.0,36.0,18.0,46.0,41.0,30.0,14.0,5.0,DHS 2014-15,2015.0,Lower-Secondary
+GUY,Guyana,LAC,LAC,Less Developed,7.0,6.0,8.0,8.0,4.0,12.0,6.0,7.0,4.0,4.0,MICS 2014,2014.0,Lower-Secondary
+HTI,Haiti,LAC,LAC,Least Developed,6.0,5.0,7.0,8.0,3.0,14.0,7.0,3.0,3.0,3.0,DHS 2016-17,2017.0,Lower-Secondary
+HND,Honduras,LAC,LAC,Less Developed,26.0,22.0,30.0,35.0,15.0,37.0,29.0,23.0,13.0,16.0,Encuesta Permanente de Hogares 2018,2018.0,Lower-Secondary
+JAM,Jamaica,LAC,LAC,Less Developed,1.0,1.0,1.0,1.0,0.0,2.0,1.0,0.0,0.0,0.0,MICS 2011,2011.0,Lower-Secondary
+MEX,Mexico,LAC,LAC,Less Developed,6.0,5.0,7.0,9.0,5.0,,,,,,ENIGH 2018,2018.0,Lower-Secondary
+MSR,Montserrat,LAC,LAC,Not Classified,,,,,,,,,,,,,Lower-Secondary
+NIC,Nicaragua,LAC,LAC,Less Developed,,,,,,,,,,,,,Lower-Secondary
+PAN,Panama,LAC,LAC,Less Developed,4.0,3.0,4.0,7.0,2.0,9.0,4.0,3.0,0.0,1.0,MICS 2013,2013.0,Lower-Secondary
+PRY,Paraguay,LAC,LAC,Less Developed,8.0,7.0,9.0,11.0,5.0,13.0,7.0,6.0,3.0,3.0,Encuesta Permanente de Hogares 2017,2017.0,Lower-Secondary
+PER,Peru,LAC,LAC,Less Developed,7.0,7.0,7.0,9.0,6.0,13.0,7.0,6.0,4.0,3.0,DHS 2012,2012.0,Lower-Secondary
+KNA,Saint Kitts and Nevis,LAC,LAC,Less Developed,,,,,,,,,,,,,Lower-Secondary
+LCA,Saint Lucia,LAC,LAC,Less Developed,1.0,1.0,1.0,1.0,1.0,0.0,2.0,2.0,0.0,1.0,MICS 2012,2012.0,Lower-Secondary
+VCT,Saint Vincent and the Grenadines,LAC,LAC,Less Developed,,,,,,,,,,,,,Lower-Secondary
+SUR,Suriname,LAC,LAC,Less Developed,7.0,6.0,8.0,11.0,5.0,14.0,7.0,4.0,2.0,3.0,MICS 2018,2018.0,Lower-Secondary
+TTO,Trinidad and Tobago,LAC,LAC,Less Developed,2.0,3.0,2.0,2.0,2.0,4.0,2.0,2.0,2.0,1.0,MICS 2011,2011.0,Lower-Secondary
+TCA,Turks and Caicos Islands,LAC,LAC,Not Classified,,,,,,,,,,,,,Lower-Secondary
+URY,Uruguay,LAC,LAC,Less Developed,9.0,11.0,7.0,9.0,9.0,8.0,2.0,7.0,21.0,1.0,MICS 2012-13,2013.0,Lower-Secondary
+VEN,Venezuela (Bolivarian Republic of),LAC,LAC,Less Developed,,,,,,,,,,,,,Lower-Secondary
+AIA,Anguilla,LAC,LAC,Not Classified,,,,,,,,,,,,,Upper-Secondary
+ATG,Antigua and Barbuda,LAC,LAC,Less Developed,,,,,,,,,,,,,Upper-Secondary
+ARG,Argentina,LAC,LAC,Less Developed,13.0,12.0,13.0,,,24.0,17.0,11.0,7.0,2.0,MICS 2011-12,2012.0,Upper-Secondary
+BHS,Bahamas,LAC,LAC,Less Developed,,,,,,,,,,,,,Upper-Secondary
+BRB,Barbados,LAC,LAC,Less Developed,1.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,MICS 2012,2012.0,Upper-Secondary
+BLZ,Belize,LAC,LAC,Less Developed,33.0,35.0,30.0,38.0,24.0,54.0,43.0,40.0,13.0,7.0,MICS 2015-16,2016.0,Upper-Secondary
+BOL,Bolivia (Plurinational State of),LAC,LAC,Less Developed,,,,,,,,,,,,,Upper-Secondary
+BRA,Brazil,LAC,LAC,Less Developed,8.0,7.0,8.0,12.0,7.0,12.0,8.0,7.0,4.0,1.0,PNAD 2019,2019.0,Upper-Secondary
+VGB,British Virgin Islands,LAC,LAC,Not Classified,,,,,,,,,,,,,Upper-Secondary
+CHL,Chile,LAC,LAC,Less Developed,3.0,3.0,3.0,2.0,3.0,,,,,,CASEN 2017,2017.0,Upper-Secondary
+COL,Colombia,LAC,LAC,Less Developed,16.0,16.0,17.0,26.0,13.0,29.0,21.0,14.0,10.0,5.0,DHS 2015,2015.0,Upper-Secondary
+CRI,Costa Rica,LAC,LAC,Less Developed,9.0,8.0,11.0,11.0,9.0,20.0,10.0,3.0,4.0,9.0,MICS 2018,2018.0,Upper-Secondary
+CUB,Cuba,LAC,LAC,Less Developed,,,,,,,,,,,,,Upper-Secondary
+DMA,Dominica,LAC,LAC,Less Developed,,,,,,,,,,,,,Upper-Secondary
+DOM,Dominican Republic,LAC,LAC,Less Developed,16.0,14.0,18.0,19.0,14.0,29.0,20.0,13.0,10.0,6.0,MICS 2014,2014.0,Upper-Secondary
+ECU,Ecuador,LAC,LAC,Less Developed,15.0,15.0,15.0,20.0,12.0,,,,,,GEPH-ENEMDU-DICIEMBRE - 2019,2019.0,Upper-Secondary
+SLV,El Salvador,LAC,LAC,Less Developed,35.0,35.0,35.0,49.0,25.0,61.0,46.0,33.0,20.0,8.0,MICS 2014,2014.0,Upper-Secondary
+GRD,Grenada,LAC,LAC,Less Developed,,,,,,,,,,,,,Upper-Secondary
+GTM,Guatemala,LAC,LAC,Less Developed,49.0,54.0,44.0,61.0,33.0,75.0,67.0,53.0,32.0,15.0,DHS 2014-15,2015.0,Upper-Secondary
+GUY,Guyana,LAC,LAC,Less Developed,33.0,29.0,37.0,35.0,28.0,49.0,42.0,32.0,24.0,15.0,MICS 2014,2014.0,Upper-Secondary
+HTI,Haiti,LAC,LAC,Least Developed,15.0,15.0,14.0,18.0,10.0,29.0,16.0,13.0,11.0,5.0,DHS 2016-17,2017.0,Upper-Secondary
+HND,Honduras,LAC,LAC,Less Developed,47.0,45.0,49.0,64.0,28.0,71.0,52.0,40.0,34.0,20.0,Encuesta Permanente de Hogares 2018,2018.0,Upper-Secondary
+JAM,Jamaica,LAC,LAC,Less Developed,9.0,7.0,11.0,11.0,6.0,16.0,10.0,9.0,6.0,1.0,MICS 2011,2011.0,Upper-Secondary
+MEX,Mexico,LAC,LAC,Less Developed,25.0,24.0,26.0,38.0,20.0,,,,,,ENIGH 2018,2018.0,Upper-Secondary
+MSR,Montserrat,LAC,LAC,Not Classified,,,,,,,,,,,,,Upper-Secondary
+NIC,Nicaragua,LAC,LAC,Less Developed,,,,,,,,,,,,,Upper-Secondary
+PAN,Panama,LAC,LAC,Less Developed,20.0,17.0,23.0,31.0,14.0,39.0,27.0,20.0,11.0,1.0,MICS 2013,2013.0,Upper-Secondary
+PRY,Paraguay,LAC,LAC,Less Developed,26.0,26.0,26.0,37.0,19.0,38.0,30.0,25.0,19.0,12.0,Encuesta Permanente de Hogares 2017,2017.0,Upper-Secondary
+PER,Peru,LAC,LAC,Less Developed,16.0,16.0,15.0,21.0,13.0,30.0,17.0,13.0,13.0,4.0,DHS 2012,2012.0,Upper-Secondary
+KNA,Saint Kitts and Nevis,LAC,LAC,Less Developed,,,,,,,,,,,,,Upper-Secondary
+LCA,Saint Lucia,LAC,LAC,Less Developed,17.0,14.0,20.0,17.0,20.0,21.0,23.0,27.0,16.0,0.0,MICS 2012,2012.0,Upper-Secondary
+VCT,Saint Vincent and the Grenadines,LAC,LAC,Less Developed,,,,,,,,,,,,,Upper-Secondary
+SUR,Suriname,LAC,LAC,Less Developed,24.0,18.0,30.0,35.0,20.0,42.0,29.0,21.0,16.0,10.0,MICS 2018,2018.0,Upper-Secondary
+TTO,Trinidad and Tobago,LAC,LAC,Less Developed,10.0,8.0,12.0,10.0,10.0,18.0,9.0,11.0,6.0,7.0,MICS 2011,2011.0,Upper-Secondary
+TCA,Turks and Caicos Islands,LAC,LAC,Not Classified,,,,,,,,,,,,,Upper-Secondary
+URY,Uruguay,LAC,LAC,Less Developed,21.0,15.0,27.0,27.0,21.0,41.0,8.0,28.0,19.0,17.0,MICS 2012-13,2013.0,Upper-Secondary
+VEN,Venezuela (Bolivarian Republic of),LAC,LAC,Less Developed,,,,,,,,,,,,,Upper-Secondary

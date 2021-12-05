@@ -47,6 +47,11 @@ body {
     text-anchor: middle;
 }
 
+.yaxis-grid line {
+    /* stroke: #def; */
+    stroke-opacity: 0.1;
+  }
+
 div.tooltip {
     color: #222; 
     background: #fff; 
