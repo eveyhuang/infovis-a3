@@ -31,8 +31,8 @@
             .attr("transform", `translate(${margin.left},${margin.top})`);
 
     // Some global variables - default level and demographic type
-    var selectedLevel = "Primary";
-    var selectedDemoType = "Total";
+    var selectedLevel = "Primary"; // Primary, Lower Secondary, Upper Secondary
+    var selectedDemoType = "Total"; // Total, Gender, Residence
 
     // Function for choosing colours based on DemoType
     function chooseColours(selectedDemoType) {
@@ -52,7 +52,7 @@
 
         // Set data type
         data.forEach(function(d) {
-            d.DemoValue = parseFloat(d.DemoValue);
+            d.DemoValue = parseFloat(d.DemoValue); // parse the percentage value to float
         });
 
         // ****************************************************************************************
@@ -94,17 +94,12 @@
             .sort((a, b) => b['TotalValue'] - a['TotalValue']);
 
         // Use this to get the sub-categories for the demoType
-        var selectedDemoCategories = new Set(filteredData.map(d => d.DemoCategory))
+        var selectedDemoCategories = new Set(filteredData.map(d => d.DemoCategory));
 
         // Get X, Y, Z values from selection
         const X = d3.map(filteredData, d => d.Country);
         const Y = d3.map(filteredData, d => d.DemoValue);
         const Z = d3.map(filteredData, d => d.DemoCategory);
-
-        // // Choose colours
-        // const colorScale = d3.scaleOrdinal()
-        // .domain(d => d.DemoCategory)
-        // .range(d3.schemeCategory10);
 
         // Add a title 
         svg.append("text")
@@ -186,10 +181,9 @@
         .range([0, xScale.bandwidth()]) // set range
         .padding(0.05); // set the padding within the bars
 
-        // Z Scale setup
+        // Z Scale setup for colouring the bars
         const zScale = d3.scaleOrdinal()
         .domain(filteredData.map(d => d.DemoCategory)) // 
-        //.range(['#e41a1c','dodgerblue']) 
         .range(chooseColours(selectedDemoType)); //
         //.range(d3.schemeSet2); // set the range of colours
 
@@ -217,15 +211,14 @@
             .transition()
             .duration(400)
             .attr("y", function(d) { return yScale(d.DemoValue); })
-            .attr("height", function(d) { return height - yScale(d.DemoValue); })
-            //.delay(function(d,i){console.log(i) ; return(i*100)})
+            .attr("height", function(d) { return height - yScale(d.DemoValue); });
 
         // ****************************************************************************************
         // UPDATE FUNCTION DECLARATIONS
         // ****************************************************************************************
 
-        // Function to update visualization based on school level selected
-        function updateLevel(selectedLevel) {
+        // Function to update visualisation based on school-level or demographic-type change
+        function update(selectedLevel, selectedDemoType) {
 
             // Filter data by the defaut level, and also by the default demoType,
             // and also sort it by the value of the default demographic
@@ -236,7 +229,7 @@
             // Use this to get the sub-categories for the demoType
             var selectedDemoCategories = new Set(filteredData.map(d => d.DemoCategory))
 
-            // Get X, Y, Z values from selection
+            // Get X, Y, Z values from filtration
             const X = d3.map(filteredData, d => d.Country);
             const Y = d3.map(filteredData, d => d.DemoValue);
             const Z = d3.map(filteredData, d => d.DemoCategory);
@@ -269,7 +262,7 @@
             zScale.domain(filteredData.map(d => d.DemoCategory)) // 
             .range(chooseColours(selectedDemoType)); //
 
-            // Update the barplot based on the selected school level
+            // Update the barplot woohoo!
             barplot.data(filteredData)
             .join("rect")
                 .attr("x", d => xScale(d.Country) + xzScale(d.DemoCategory))
@@ -289,73 +282,7 @@
             .attr("height", function(d) { return height - yScale(d.DemoValue); });
 
         }
-
-        // Function to update visualization based on demo type (total, gender, residence) selected
-        function updateDemoType(selectedDemoType) {
-
-            // Filter data by the defaut level, and also by the default demoType,
-            // and also sort it by the value of the default demographic
-            const filteredData = data.filter(d => d.Level === selectedLevel)
-                .filter(d => d.DemoType === selectedDemoType)
-                .sort((a, b) => b['TotalValue'] - a['TotalValue']);
-            
-            // Use this to get the sub-categories for the demoType
-            var selectedDemoCategories = new Set(filteredData.map(d => d.DemoCategory))
-
-            // Get X, Y, Z values from selection
-            const X = d3.map(filteredData, d => d.Country);
-            const Y = d3.map(filteredData, d => d.DemoValue);
-            const Z = d3.map(filteredData, d => d.DemoCategory);
-
-            // Update the yScale
-            yScale.domain([0, d3.max(filteredData, function(d) { return d.DemoValue; })+10]);
-            // Update the yAxis and yAxisGrid
-            var yAxis = d3.axisLeft(yScale)
-                .tickFormat(d => d + " %");
-            var yAxisGrid = d3.axisLeft(yScale).tickSize(-width)
-                .tickFormat('')
-                .ticks(10);
-            // Re-draw the yAxis and yAxisGrid
-            svg.selectAll("g .yAxis")
-                .call(yAxis)
-            svg.selectAll("g .yaxis-grid")
-                .call(yAxisGrid);
-
-            // Update the xScale
-            xScale.domain(filteredData.map(d => d.Country));
-            // Update the xAxis
-            var xAxis = d3.axisBottom(xScale)
-            // Re-draw the xAxis
-            svg.selectAll("g .xAxis")
-                .call(xAxis)
-
-            // Update xzScale and zScale for the bars and their colours
-            xzScale.domain(filteredData.map(d => d.DemoCategory)) 
-                .range([0, xScale.bandwidth()]) // set range
-            zScale.domain(filteredData.map(d => d.DemoCategory)) 
-            .range(chooseColours(selectedDemoType)); 
-
-            // Update the barplot based on the selected school level
-            barplot.data(filteredData)
-            .join("rect")
-                .attr("x", d => xScale(d.Country) + xzScale(d.DemoCategory))
-                .attr("y", d => yScale(d.DemoValue))
-                .attr("width", xzScale.bandwidth())
-                .attr("height", d => height - yScale(d.DemoValue))
-                .attr("fill", d => zScale(d.DemoCategory))
-                // Animation: show no bars at the start
-                .attr("height", function(d) { return height - yScale(0); }) // always equal to 0
-                .attr("y", function(d) { return yScale(0); });
-
-            // Animation
-            svg.selectAll("rect")
-            .transition()
-            .duration(400)
-            .attr("y", function(d) { return yScale(d.DemoValue); })
-            .attr("height", function(d) { return height - yScale(d.DemoValue); });
-
-        }
-
+        
         // ****************************************************************************************
         // UPDATE FUNCTION CALLS
         // ****************************************************************************************
@@ -365,7 +292,7 @@
             // recover the option that has been chosen
             selectedLevel = d3.select(this).property("value")
             // run the update function with this selected option
-            updateLevel(selectedLevel)
+            update(selectedLevel, selectedDemoType)
         })
 
         // Call to update visualization when button changes
@@ -373,7 +300,7 @@
             // recover the option that has been chosen
             selectedDemoType = d3.select(this).property("value")
             // run the update function with this selected option
-            updateDemoType(selectedDemoType)
+            update(selectedLevel, selectedDemoType)
         })
 
 
