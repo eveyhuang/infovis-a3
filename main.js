@@ -15,10 +15,12 @@ let data = new Map();
 var colorScale = d3.scaleSequential().domain([0, 60])
 .interpolator(d3.interpolateBlues);
 
+// color scheme for bar plot
+var colourScheme;
+
 // Some global variables for the barplot - default level and demographic type
 var selectedLevel = "Primary"; // Primary, Lower Secondary, Upper Secondary
 var selectedDemoType = "Total"; // Total, Gender, Residence
-
 
 // append svg for map
 var map = d3.select("#mapViz")
@@ -41,7 +43,7 @@ map.append("g")
   .attr("transform", "translate(" + legend_x + "," + legend_y+")");
 
 var legend = d3.legendColor()
-  .shapeWidth(20)
+  .shapeWidth(26)
   .orient('horizontal')
   .title("Total Out of School Rates")
   .scale(colorScale)
@@ -53,7 +55,8 @@ map.select(".legend")
 // initiate tooltip
 tooltip = d3.select("body").append("div")
 .attr("class", "tooltip")
-.style("opacity", 0);
+.style("opacity", 0)
+.style("font", "20px sans-serif");
 
 // Append svg for barplot 
 var barPlotSVG = d3.select("#sortedBarplot")
@@ -67,9 +70,8 @@ var barPlotSVG = d3.select("#sortedBarplot")
 
 // Function for choosing colours on the barplot based on DemoType
 function chooseColours(selectedDemoType) {
-    var colourScheme;
     if (selectedDemoType=="Total") {
-        colourScheme = ['red'];
+        colourScheme = ['orange'];
     } else if (selectedDemoType=="Gender") {
         colourScheme = ['dodgerblue', 'gold'];
     } else {
@@ -304,7 +306,7 @@ Promise.all([
     barPlotSVG.append('g')
         .attr('class', 'yaxis-grid')
         .call(yAxisGrid);
-
+ 
 
     // ********** XZ-Axis Stuff **********
 
@@ -320,6 +322,23 @@ Promise.all([
     .range(chooseColours(selectedDemoType)); //
     //.range(d3.schemeSet2); // set the range of colours
     
+    // legend for bar chart
+    var ordinal = d3.scaleOrdinal()
+    .domain(["Total", "Male", "Female", "Rural",  "Urban"])
+    .range(['orange', 'dodgerblue', 'gold','green', 'brown']);
+
+    barPlotSVG.append("g")
+    .attr("class", "legendOrdinal")
+    .attr("transform", "translate(450,20)");
+
+    var legendOrdinal = d3.legendColor()
+    .shape("path", d3.symbol().type(d3.symbolSquare).size(150)())
+    .shapePadding(5)
+    .scale(ordinal);
+
+    barPlotSVG.select(".legendOrdinal")
+    .call(legendOrdinal);
+
     // mouseover for barplot
     let barMouseOver = function(event, d, i) {
         d3.select(this)
@@ -389,7 +408,7 @@ Promise.all([
             .sort((a, b) => b['total_value'] - a['total_value']);
 
         filteredData.forEach(d => data.set(d.country_id, d.total_value));
-        // console.log(data)
+        
         // Use this to get the sub-categories for the demoType
         var selectedDemoCategories = new Set(filteredData.map(d => d.demo_category))
 
@@ -423,7 +442,8 @@ Promise.all([
 
         // Update the barplot woohoo!
         
-        barPlot.data(filteredData)
+        barPlotSVG.selectAll("rect")
+        .data(filteredData)
         .join("rect")
             .attr("x", d => xScale(d.country) + xzScale(d.demo_category))
             .attr("y", d => yScale(d.demo_value))
