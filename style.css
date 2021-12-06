@@ -4,7 +4,7 @@ body {
 }
 #visualization {
     position: relative;
-    width: 900px;
+    width: 800px;
     text-align: center;
     border-right-width: 0;
     float: left;
@@ -34,7 +34,7 @@ body {
 }
 
 #filters {
-    width: 280px;
+    width: 200px;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     font-size: 10px;
