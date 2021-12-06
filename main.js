@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
-const margin = {top: 40, right: 30, bottom: 70, left: 50},
-width = 600 - margin.left - margin.right,
-height = 550 - margin.top - margin.bottom;
+const margin = {top: 40, right: 30, bottom: 70, left: 70},
+width = 650 - margin.left - margin.right,
+height = 575 - margin.top - margin.bottom;
 
 // regions and corresponding countries 
 let countries = {"SA": ["Afghanistan", "Bangladesh", "Bhutan", "India", "Maldives", "Nepal", "Pakistan", "Sri Lanka"], "ECA": ["Albania", "Andorra", "Armenia", "Austria", "Azerbaijan", "Belarus", "Belgium", "Bosnia and Herzegovina", "Bulgaria", "Croatia", "Cyprus", "Czechia", "Denmark", "Estonia", "Finland", "France", "Georgia", "Germany", "Greece", "Holy See", "Hungary", "Iceland", "Ireland", "Italy", "Kazakhstan", "Kyrgyzstan", "Latvia", "Liechtenstein", "Lithuania", "Luxembourg", "Malta", "Monaco", "Montenegro", "Netherlands", "North Macedonia", "Norway", "Poland", "Portugal", "Republic of Moldova", "Romania", "Russian Federation", "San Marino", "Serbia", "Slovakia", "Slovenia", "Spain", "Sweden", "Switzerland", "Tajikistan", "Turkey", "Turkmenistan", "Ukraine", "United Kingdom", "Uzbekistan"], "MENA": ["Algeria", "Bahrain", "Egypt", "Iran (Islamic Republic of)", "Iraq", "Israel", "Jordan", "Kuwait", "Lebanon", "Libya", "Morocco", "Oman", "Qatar", "Saudi Arabia", "State of Palestine", "Syrian Arab Republic", "Tunisia", "United Arab Emirates", "Yemen"], "SSA": ["Angola", "Benin", "Botswana", "Burkina Faso", "Burundi", "Cabo Verde", "Cameroon", "Central African Republic", "Chad", "Comoros", "Congo", "Democratic Republic of the Congo", "Djibouti", "Equatorial Guinea", "Eritrea", "Eswatini", "Ethiopia", "Gabon", "Gambia", "Ghana", "Guinea", "Guinea-Bissau", "Kenya", "Lesotho", "Liberia", "Madagascar", "Malawi", "Mali", "Mauritania", "Mauritius", "Mozambique", "Namibia", "Niger", "Nigeria", "Rwanda", "Sao Tome and Principe", "Senegal", "Seychelles", "Sierra Leone", "Somalia", "South Africa", "South Sudan", "Sudan", "Togo", "Uganda", "United Republic of Tanzania", "Zambia", "Zimbabwe"], "LAC": ["Anguilla", "Antigua and Barbuda", "Argentina", "Bahamas", "Barbados", "Belize", "Bolivia (Plurinational State of)", "Brazil", "British Virgin Islands", "Chile", "Colombia", "Costa Rica", "Cuba", "Dominica", "Dominican Republic", "Ecuador", "El Salvador", "Grenada", "Guatemala", "Guyana", "Haiti", "Honduras", "Jamaica", "Mexico", "Montserrat", "Nicaragua", "Panama", "Paraguay", "Peru", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Suriname", "Trinidad and Tobago", "Turks and Caicos Islands", "Uruguay", "Venezuela (Bolivarian Republic of)"], "EAP": ["Australia", "Brunei Darussalam", "Cambodia", "China", "Cook Islands", "North Korea", "Fiji", "Indonesia", "Japan", "Kiribati", "Laos", "Malaysia", "Marshall Islands", "Micronesia (Federated States of)", "Mongolia", "Myanmar", "Nauru", "New Zealand", "Niue", "Palau", "Papua New Guinea", "Philippines", "Republic of Korea", "Samoa", "Singapore", "Solomon Islands", "Thailand", "Timor-Leste", "Tokelau", "Tonga", "Tuvalu", "Vanuatu", "Viet Nam"]};
@@ -43,20 +43,20 @@ map.append("g")
   .attr("transform", "translate(" + legend_x + "," + legend_y+")");
 
 var legend = d3.legendColor()
-  .shapeWidth(26)
-  .orient('horizontal')
-  .title("Total Out of School Rates")
-  .scale(colorScale)
+    .shapeWidth(30)
+    .orient('horizontal')
+    .title("Total Out of School Rates")
+    .scale(colorScale);
   
 map.select(".legend")
-.call(legend)
-.style("font-size", "8px");
+    .call(legend)
+    .style("font-size", "12px");
 
 // initiate tooltip
 tooltip = d3.select("body").append("div")
-.attr("class", "tooltip")
-.style("opacity", 0)
-.style("font", "20px sans-serif");
+    .attr("class", "tooltip")
+    .style("opacity", 0)
+    .style("font", "20px sans-serif");
 
 // Append svg for barplot 
 var barPlotSVG = d3.select("#sortedBarplot")
@@ -71,11 +71,11 @@ var barPlotSVG = d3.select("#sortedBarplot")
 // Function for choosing colours on the barplot based on DemoType
 function chooseColours(selectedDemoType) {
     if (selectedDemoType=="Total") {
-        colourScheme = ['orange'];
+        colourScheme = ['#6AAED9'];
     } else if (selectedDemoType=="Gender") {
-        colourScheme = ['dodgerblue', 'gold'];
+        colourScheme = ['#110066', '#FFD432']; // Male Female
     } else {
-        colourScheme = ['green','brown'];
+        colourScheme = ['#459C19','#9C0096']; // Rural Urban
     }
     return colourScheme;   
 }
@@ -140,7 +140,7 @@ Promise.all([
             .filter(function(data){
                 return data.country === selectedCountry
             })
-            .attr("fill", "red")
+            .attr("fill", "red") // highlight the barplot based on map
     }
 
     // //mouseleave for map
@@ -190,7 +190,6 @@ Promise.all([
     //     .style("font-size", "11px")    
     
 
-
     // ****************************************************************************************
     // DROP-DOWN MENU SETUP
     // ****************************************************************************************
@@ -227,19 +226,14 @@ Promise.all([
     // Use filteredData to get the sub-categories for the demoType
     var selectedDemoCategories = new Set(filteredData.map(d => d.demo_category));
 
-    // Get X, Y, Z values from selection
-    // const X = d3.map(filteredData, d => d.country);
-    // const Y = d3.map(filteredData, d => d.demo_value);
-    // const Z = d3.map(filteredData, d => d.demo_category);
-
     // Add a title woohoo!
     barPlotSVG.append("text")
         .attr("x", (width / 2))             
         .attr("y", 0 - (margin.top / 2))
         .attr("text-anchor", "middle")  
-        .style("font-size", "14px") 
-        .style("text-decoration", "underline")  
-        .text("South-East Asian Countries, Ranked by Out-of-School Rates");
+        .style("font-size", "18px") 
+        .style("font-weight", "bold")  
+        .text("Ranking Countries by Out of School Rates");
 
     
     // ********** X-Axis Stuff **********
@@ -261,15 +255,17 @@ Promise.all([
         .selectAll("text")
             .attr("transform", "translate(5,5)rotate(-30)") // rotation for readability
             .style("text-anchor", "end") // for vertical alignment
-            .attr("font-size","11px"); // font size
+            .attr("font-size","14px"); // font size
 
     // Add X-label
     barPlotSVG.append("text")
         .attr("class", "xlabel")
         .attr("text-anchor", "end")
+        .attr("font-size","16px")
         .attr("x", (width + margin.left + margin.right)/2) // Position x-label
         .attr("y", height + margin.bottom)
         .text("Countries"); // Label
+        
         
         
     // ********** Y-Axis Stuff **********
@@ -291,13 +287,14 @@ Promise.all([
         .attr("class", "yAxis")
         .call(yAxis)
         .selectAll("text")
-            .attr("font-size","11px"); // font size
+            .attr("font-size","14px"); // font size
 
     // Add y-label
     barPlotSVG.append("text")
         .attr("class", "ylabel")
         .attr("text-anchor", "end")
-        .attr("y", -margin.left/1.3) // **SEE HERE**: mind these if you change the margins or width/height
+        .attr("font-size","16px")
+        .attr("y", - margin.left/1.5-10) // **SEE HERE**: mind these if you change the margins or width/height
         .attr("x", margin.bottom - height/2.5) // **SEE HERE**: mind these if you change the margins or width/height
         .attr("transform", "rotate(-90)")
         .text("Out of School Rate (% of population)"); // Label
@@ -324,12 +321,12 @@ Promise.all([
     
     // legend for bar chart
     var ordinal = d3.scaleOrdinal()
-    .domain(["Total", "Male", "Female", "Rural",  "Urban"])
-    .range(['orange', 'dodgerblue', 'gold','green', 'brown']);
+        .domain(["Total", "Male", "Female", "Rural Residence",  "Urban Residence"])
+        .range(['#6AAED9', '#110066', '#FFD432','#459C19', '#9C0096']);
 
     barPlotSVG.append("g")
-    .attr("class", "legendOrdinal")
-    .attr("transform", "translate(450,20)");
+        .attr("class", "legendOrdinal")
+        .attr("transform", "translate(400,20)");
 
     var legendOrdinal = d3.legendColor()
     .shape("path", d3.symbol().type(d3.symbolSquare).size(150)())
@@ -337,7 +334,7 @@ Promise.all([
     .scale(ordinal);
 
     barPlotSVG.select(".legendOrdinal")
-    .call(legendOrdinal);
+        .call(legendOrdinal);
 
     // mouseover for barplot
     let barMouseOver = function(event, d, i) {
@@ -355,7 +352,7 @@ Promise.all([
     }
 
     // //mouseleave for barplot
-    let barMouseLeave = function(d) {
+    let barMouseLeave = function() {
         d3.select(this)
         .transition()
         .duration(200)

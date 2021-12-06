@@ -15,23 +15,32 @@
     <!-- Create a div where the graph will take place -->
     <body>
         <div id="title" class="frame">
-            <p>Out of School Rates of Countries in SA Region </p>
+            <h3>Out of School Rates of Countries in South-Asian Region </h3>
         </div>
         <div class="row">
             <div id="visualization" class="frame">
                 <svg id="mapViz" width='800' height='600'></svg>
-                <svg id= "sortedBarplot" width = '600' height = '600'></svg>
+                <svg id= "sortedBarplot" width = '650' height = '600'></svg>
                 <script src="main.js"></script>
             </div>    
 
             <div id="filters" class= "frame">
                 <br>
+
+
                 <!-- Initialize a select button for the Level -->
+                <h2> School Level: </h2>
                 <select id="selectLevel"></select>
+                
                 <br/><br/>
+                <br/><br/>
+            
                 <!-- Initialize a select button for the demographic -->
+                <h2> Demographic Type to Compare: </h2>
                 <select id="selectDemoType"></select>
                 <br/><br/>
+
+
             </div>
 
         </div>
