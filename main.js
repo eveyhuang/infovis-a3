@@ -12,8 +12,13 @@ let region = "SA";
 let mapdata, dataset;
 let data = new Map();
 // color scale for map filling
-var colorScale = d3.scaleSequential().domain([0, 100])
+var colorScale = d3.scaleSequential().domain([0, 60])
 .interpolator(d3.interpolateBlues);
+
+// Some global variables for the barplot - default level and demographic type
+var selectedLevel = "Primary"; // Primary, Lower Secondary, Upper Secondary
+var selectedDemoType = "Total"; // Total, Gender, Residence
+
 
 // append svg for map
 var map = d3.select("#mapViz")
@@ -59,9 +64,6 @@ var barPlotSVG = d3.select("#sortedBarplot")
     .attr("transform", `translate(${margin.left},${margin.top})`);
 
 
-// Some global variables for the barplot - default level and demographic type
-var selectedLevel = "Primary"; // Primary, Lower Secondary, Upper Secondary
-var selectedDemoType = "Total"; // Total, Gender, Residence
 
 // Function for choosing colours on the barplot based on DemoType
 function chooseColours(selectedDemoType) {
@@ -129,7 +131,7 @@ Promise.all([
         tooltip.transition()
             .duration(200)
             .style("opacity", 1);
-        tooltip.html("<b>" + d.properties.name + "</b>: " + "Total out of School Rates is " + data.get(d.id) + " % <br>" )
+        tooltip.html("<b>" + d.properties.name + "</b>: " + "Total out of School Rates for "+ selectedLevel +" is " + data.get(d.id) + " % <br>" )
             .style("left", (event.pageX + 5) + "px")
             .style("top", (event.pageY - 28) + "px");
     }
@@ -141,7 +143,8 @@ Promise.all([
         .transition()
         .duration(200)
         .style("stroke", "transparent")
-        .style("stroke", "grey");
+        .style("stroke", "grey")
+        .style("opacity", .7);
         tooltip.transition()
         .style("opacity", 0);
     }
@@ -168,15 +171,15 @@ Promise.all([
     
     
     // add name for each country on map
-    map.selectAll("text")
-        .data(mapdata.features)
-        .enter().append("text")
-        .text(function (d) {
-            return d.properties.name;
-        })
-        .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
-        .attr("dy", ".35em")
-        .style("font-size", "11px")    
+    // map.selectAll("text")
+    //     .data(mapdata.features)
+    //     .enter().append("text")
+    //     .text(function (d) {
+    //         return d.properties.name;
+    //     })
+    //     .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
+    //     .attr("dy", ".35em")
+    //     .style("font-size", "11px")    
     
 
 
@@ -346,7 +349,7 @@ Promise.all([
 
         // Remove the old bars
         barPlotSVG.selectAll("rect").remove(); 
-
+        
         // Filter data by the defaut level, and also by the default demoType,
         // and also sort it by the value of the default demographic
         const filteredData = dataset.filter(d => d.level === selectedLevel)
@@ -354,7 +357,7 @@ Promise.all([
             .sort((a, b) => b['total_value'] - a['total_value']);
 
         filteredData.forEach(d => data.set(d.country_id, d.total_value));
-    
+        console.log(data)
         // Use this to get the sub-categories for the demoType
         var selectedDemoCategories = new Set(filteredData.map(d => d.demo_category))
 
@@ -406,6 +409,14 @@ Promise.all([
         .attr("y", function(d) { return yScale(d.demo_value); })
         .attr("height", function(d) { return height - yScale(d.demo_value); });
 
+        // redraw the map
+        map.selectAll("path")
+        .data(mapdata.features)
+        // set the color of each country
+        .attr("fill", function (d) {
+            // fill the country with total out of school
+            return colorScale(data.get(d.id)); 
+        })
     }
     
     // ****************************************************************************************
