@@ -134,17 +134,23 @@ Promise.all([
         tooltip.html("<b>" + d.properties.name + "</b>: " + "Total out of School Rates for "+ selectedLevel +" is " + data.get(d.id) + " % <br>" )
             .style("left", (event.pageX + 5) + "px")
             .style("top", (event.pageY - 28) + "px");
+        barPlotSVG.selectAll("rect")
+            .filter(function(data){
+                return data.country === selectedCountry
+            })
+            .attr("fill", "red")
     }
 
     // //mouseleave for map
     let mouseLeave = function(d) {
-        selectedCountry = null;
         d3.select(this)
         .transition()
         .duration(200)
         .style("stroke", "transparent")
         .style("stroke", "grey")
         .style("opacity", .7);
+        barPlotSVG.selectAll("rect")
+            .attr("fill", data => zScale(data.demo_category));
         tooltip.transition()
         .style("opacity", 0);
     }
@@ -170,7 +176,7 @@ Promise.all([
         .on("mouseleave", mouseLeave);
     
     
-    // add name for each country on map
+    // add name for each country on map (broken rn)
     // map.selectAll("text")
     //     .data(mapdata.features)
     //     .enter().append("text")
@@ -409,7 +415,7 @@ Promise.all([
         .attr("y", function(d) { return yScale(d.demo_value); })
         .attr("height", function(d) { return height - yScale(d.demo_value); });
 
-        // redraw the map
+        // update fill color of the map
         map.selectAll("path")
         .data(mapdata.features)
         // set the color of each country
