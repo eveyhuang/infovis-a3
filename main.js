@@ -11,14 +11,9 @@ let attributes = ["region", "level"];
 let region = "SA";
 let mapdata, dataset;
 
-// Set default school level
-const defaultLevel = "Primary"
-
 // color scale for map filling
 var colorScale = d3.scaleSequential().domain([0, 100])
 .interpolator(d3.interpolateBlues);
-
-
 
 // append svg for map
 const map = d3.select("#mapViz")
@@ -47,11 +42,15 @@ var legend = d3.legendColor()
   .scale(colorScale)
   
 map.select(".legend")
- .call(legend)
- .style("font-size", "8px");
+.call(legend)
+.style("font-size", "8px");
 
+// initiate tooltip
+tooltip = d3.select("body").append("div")
+.attr("class", "tooltip")
+.style("opacity", 0);
 
-//append svg for boxplot 
+// Append svg for barplot 
 const boxPlot = d3.select("#sortedBarplot")
 .append("svg")
   .attr("width", width + 300)
@@ -60,40 +59,61 @@ const boxPlot = d3.select("#sortedBarplot")
   .attr("transform", `translate(${margin.left},${margin.top})`);
 
 
-// initiate tooltip
-tooltip = d3.select("body").append("div")
-.attr("class", "tooltip")
-.style("opacity", 0);
+// Some global variables for the barplot - default level and demographic type
+var selectedLevel = "Primary"; // Primary, Lower Secondary, Upper Secondary
+var selectedDemoType = "Total"; // Total, Gender, Residence
 
+// Function for choosing colours on the barplot based on DemoType
+function chooseColours(selectedDemoType) {
+    var colourScheme;
+    if (selectedDemoType=="Total") {
+        colourScheme = ['red'];
+    } else if (selectedDemoType=="Gender") {
+        colourScheme = ['dodgerblue', 'gold'];
+    } else {
+        colourScheme = ['green','brown'];
+    }
+    return colourScheme;   
+}
 
 Promise.all([
     d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"),
-    d3.csv("data/all_levels.csv", function(d){
+    d3.csv("data/all_levels_tidy_SA.csv", function(d){
         return {
             country_id : d.ISO3,
             country : d.Country, 
-            total : +d.Total,
-            female: +d.Female,
-            male:  +d.Male, // convert "Male" column to number
-            rural:  +d.RuralResidence,
-            urban: +d.UrbanResidence,
-            level: d.Level   
+            level: d.Level,
+            demo_type: d.DemoType,
+            demo_category: d.DemoCategory,
+            demo_value: +d.DemoValue,
+            total_value: +d.TotalValue,
         }
         
     })
 ]).then(function(loadData){
     
+    // ****************************************************************************************
+    // DATA LOADING FOR MAP AND BARPLOT 
+    // ****************************************************************************************
+
     // mapdata is the geojson for drawing the map
     mapdata = loadData[0];
-    // dataset is the csv file for out of school rates; column names are defined  in line 74-81
-    dataset = loadData[1];
     
-    //filter out map data based on chosen region
+    // filter out map data based on chosen region
     mapdata.features = mapdata.features.filter(d => {return countries[region].includes(d.properties.name)})
     
-    // Filter dataset by the defaut School level and also sort it
-    let filteredData = dataset.filter(d => d.level === defaultLevel).sort((a, b) => b.Total - a.Total)
-    console.log("Filtered Data:", filteredData);
+    // dataset is the csv file for out of school rates; column names are defined  in line 74-81
+    dataset = loadData[1];
+
+    // Filter data by the defaut level, and also by the default demoType,
+    // and also sort it by the value of the default demographic
+    const filteredData = dataset.filter(d => d.level === selectedLevel)
+        .filter(d => d.demo_type === selectedDemoType)
+        .sort((a, b) => b['total_value'] - a['total_value']);
+
+    // ****************************************************************************************
+    // MAP MOUSEOVER AND DRAWING
+    // ****************************************************************************************
 
     // mouseover for map
     let mouseOver = function(event, d, i) {
@@ -135,10 +155,10 @@ Promise.all([
         .style("stroke-opacity", .5)
         // set the color of each country
         .attr("fill", function (d) {
-            // fill teh country with total out of school
+            // fill the country with total out of school
             let row = filteredData.filter(data => data.country_id === d.id);
-            d.total = row[0].total|| 0;
-            return colorScale(d.total);
+            d.total_value = row[0].total_value|| 0; // HI EVEY I CHANGED THIS VARIABLE NAME
+            return colorScale(d.total_value); // DON'T CHANGE IT THIS IS NOT A BUG, THIS IS WORKING AS INTENDED
         })
         .on("mouseover", mouseOver)
         .on("mouseleave", mouseLeave);
@@ -153,159 +173,254 @@ Promise.all([
         .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
         .attr("dy", ".35em")
         .style("font-size", "11px")
-    
 
 
-    // Get set of schooling levels - LS, PRIMARY, US
+    // ****************************************************************************************
+    // DROP-DOWN MENU SETUP
+    // ****************************************************************************************
+
+    // Get set of schooling levels - PRIMARY, LS, US
     const schoolLevels = new Set(dataset.map(d => d.level))
-    // console.log(schoolLevels)
 
-   // Add school levels as options to dropdown menu
+    // Add school levels as options to dropdown menu
     d3.select("#selectLevel")
-    .selectAll('schoolLevels')
-        .data(schoolLevels)
-    .enter()
-        .append('option')
-    .text(function (d) { return d + " School"; }) // Drop-Down Menu text
-    .attr("value", function (d) { return d; }) // Value returned by drop-down menu
+        .selectAll('schoolLevels')
+            .data(schoolLevels)
+        .enter()
+            .append('option')
+        .text(function (d) { return d + " School"; }) // Drop-Down Menu text
+        .attr("value", function (d) { return d; }) // Value returned by drop-down menu
 
+    // Get set of demoTypes to plot for
+    const demoTypes = ['Total', 'Gender', 'Residence']
+
+    // Add demographics as options to dropdown menu
+    d3.select("#selectDemoType")
+        .selectAll('demoTypes')
+            .data(demoTypes)
+        .enter()
+            .append('option')
+        .text(function (d) { return d.replace(/([a-z])([A-Z])/g, '$1 $2'); }) // Drop-Down Menu text (split camel-case for pretty display)
+        .attr("value", function (d) { return d; }) // Value returned by drop-down menu
     
-    // Set colors for each school level
-    const levelColour = d3.scaleOrdinal()
-    .domain(schoolLevels)
-    .range(d3.schemeSet2);
-
-    // X axis
-    const x = d3.scaleBand() // allows scaling of bars
-    .range([ 0, width ])
-    .domain(filteredData.map(d => d.country)) // map the country names to the x axis
-    .padding(0.2);
     
-    // Make x-axis + customise the positioning of xticks
-    boxPlot.append("g")
-    .attr("transform", `translate(0, ${height})`)
-    .call(d3.axisBottom(x))
-    .selectAll("text")
-        .attr("transform", "translate(5,5)rotate(-30)") // rotation for readability
-        .style("text-anchor", "end") // for vertical alignment
-        .attr("font-size","11px"); // font size
+    // ****************************************************************************************
+    // BARPLOT AXES SETUP
+    // ****************************************************************************************
 
-    // Add x-label
+    // Use filteredData to get the sub-categories for the demoType
+    var selectedDemoCategories = new Set(filteredData.map(d => d.demo_category));
+
+    // Get X, Y, Z values from selection
+    // const X = d3.map(filteredData, d => d.country);
+    // const Y = d3.map(filteredData, d => d.demo_value);
+    // const Z = d3.map(filteredData, d => d.demo_category);
+
+    // Add a title woohoo!
     boxPlot.append("text")
-    .attr("class", "xlabel")
-    .attr("text-anchor", "end")
-    .attr("x", (width + margin.left + margin.right)/2) // Position x-label
-    .attr("y", height + margin.bottom)
-    .text("Countries"); // Label
+        .attr("x", (width / 2))             
+        .attr("y", 0 - (margin.top / 2))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "14px") 
+        .style("text-decoration", "underline")  
+        .text("South-East Asian Countries, Ranked by Out-of-School Rates");
 
-    // Y axis
-    const y = d3.scaleLinear()
-    .domain([0, 100])
-    .range([ height, 0]);
+    
+    // ********** X-Axis Stuff **********
 
-    // Make y-axis + customise the positioning of yticks
+    // Make X-scale
+    var xScale = d3.scaleBand() // allows scaling of bars
+        .domain(filteredData.map(d => d.country)) // map the country names to the x axis
+        .range([ 0, width ]) //set range
+        .paddingInner(0.2); // set the padding between the bars
+
+    // Make X-axis + customise the positioning of xticks
+    var xAxis = d3.axisBottom(xScale);
+
+    // Add X-axis to the svg
+    boxPlot.append("g")
+        .attr("class", "xAxis")
+        .attr("transform", `translate(0, ${height})`)
+        .call(xAxis)
+        .selectAll("text")
+            .attr("transform", "translate(5,5)rotate(-30)") // rotation for readability
+            .style("text-anchor", "end") // for vertical alignment
+            .attr("font-size","11px"); // font size
+
+    // Add X-label
+    boxPlot.append("text")
+        .attr("class", "xlabel")
+        .attr("text-anchor", "end")
+        .attr("x", (width + margin.left + margin.right)/2) // Position x-label
+        .attr("y", height + margin.bottom)
+        .text("Countries"); // Label
+        
+        
+    // ********** Y-Axis Stuff **********
+
+    // Make Y-scale
+    var yScale = d3.scaleLinear()
+        .domain([0, d3.max(filteredData, function(d) { return d.demo_value; })+10]) // some adjustments for a nice upper bound on the axis
+        .range([ height, 0]);
+
+    // Make Y-axis + customise the positioning of yticks and the grid
+    var yAxis = d3.axisLeft(yScale)
+        .tickFormat(d => d + " %");
+    var yAxisGrid = d3.axisLeft(yScale)
+        .tickSize(-width)
+        .tickFormat('').ticks(10);
+
+    // Add Y-axis to the svg
     boxPlot.append("g") 
-    .call(d3.axisLeft(y))
-    .selectAll("text")
-        .attr("font-size","11px"); // font size
+        .attr("class", "yAxis")
+        .call(yAxis)
+        .selectAll("text")
+            .attr("font-size","11px"); // font size
 
     // Add y-label
     boxPlot.append("text")
-    .attr("class", "ylabel")
-    .attr("text-anchor", "end")
-    .attr("y", -margin.left/1.6) // **SEE HERE**: mind these if you change the margins or width/height
-    .attr("x", margin.bottom - height/2.8) // **SEE HERE**: mind these if you change the margins or width/height
-    .attr("transform", "rotate(-90)")
-    .text("Percentage of Students Dropped Out"); // Label
+        .attr("class", "ylabel")
+        .attr("text-anchor", "end")
+        .attr("y", -margin.left/1.3) // **SEE HERE**: mind these if you change the margins or width/height
+        .attr("x", margin.bottom - height/2.5) // **SEE HERE**: mind these if you change the margins or width/height
+        .attr("transform", "rotate(-90)")
+        .text("Out of School Rate (% of population)"); // Label
 
-    // Make the bars with a chosen default school level to start with
-    const barplot = boxPlot.selectAll("bars")
-    .data(filteredData) 
-    .join("rect")
-        .attr("x", d => x(d.country))
-        .attr("y", d => y(d.total))
-        .attr("width", x.bandwidth())
-        .attr("height", d => height - y(d.total))
-        .attr("fill", function(d){ return levelColour(defaultLevel)})
-        // Animation: show no bars at the start
-        .attr("height", function(d) { return height - y(0); }) // always equal to 0
-        .attr("y", function(d) { return y(0); })
-        .on("mouseover",function(){
-                  d3.select(this)
-              .attr("fill","red")
-                }) 	
-        .on("mouseout",function(){
-                  d3.select(this)
-                  .attr("fill", function(d){ return levelColour(defaultLevel) })
-        }) 
-       
+    // Add the Y gridlines
+    boxPlot.append('g')
+        .attr('class', 'yaxis-grid')
+        .call(yAxisGrid);
+
+
+    // ********** XZ-Axis Stuff **********
+
+    // XZ Scale setup i.e. for side-by-side bars
+    var xzScale = d3.scaleBand()
+    .domain(filteredData.map(d => d.demo_category)) 
+    .range([0, xScale.bandwidth()]) // set range
+    .padding(0.05); // set the padding within the bars
+
+    // Z Scale setup for colouring the bars
+    const zScale = d3.scaleOrdinal()
+    .domain(filteredData.map(d => d.demo_category)) // 
+    .range(chooseColours(selectedDemoType)); //
+    //.range(d3.schemeSet2); // set the range of colours
+    
+    // ****************************************************************************************
+    // MAKING THE BARS
+    // ****************************************************************************************
+
+    // Make the bars with the default school level + demographic to start with
+    const barplot = boxPlot.selectAll("rect")
+        .data(filteredData) 
+        .join("rect")
+            .attr("x", d => xScale(d.country) + xzScale(d.demo_category))
+            .attr("y", d => yScale(d.demo_value))
+            .attr("width", xzScale.bandwidth())
+            .attr("height", d => height - yScale(d.demo_value))
+            .attr("fill", d => zScale(d.demo_category))
+            // Animation: show no bars at the start
+            .attr("height", function() { return height - yScale(0); }) // always equal to 0
+            .attr("y", function() { return yScale(0); });
+
 
     // Animation
     boxPlot.selectAll("rect")
-    .transition()
-    .duration(400)
-    .attr("y", function(d) { return y(d.total); })
-    .attr("height", function(d) { return height - y(d.total); })
-    //.delay(function(d,i){console.log(i) ; return(i*100)})
+        .transition()
+        .duration(400)
+        .attr("y", function(d) { return yScale(d.demo_value); })
+        .attr("height", function(d) { return height - yScale(d.demo_value); });
 
-    // Function to update visualization based on school level selected
-    function update(selectedLevel) {
 
-        // Filter data by the selected level and also sort it
-        filteredData = dataset.filter(d => d.level === selectedLevel).sort((a, b) => b.Total - a.Total)
+    // ****************************************************************************************
+    // UPDATE FUNCTION DECLARATIONS
+    // ****************************************************************************************
 
-        // Recalculate x-axis domain based on selected school level + sorted countries
-        // x.domain(filteredData.map(d => d.Country)) // map the country names to the x axis
+    // Function to update visualisation based on school-level or demographic-type change
+    function update(selectedLevel, selectedDemoType) {
 
-        // Update the barplot based on the selected school level
+        // Remove the old bars
+        boxPlot.selectAll("rect").remove(); 
+
+        // Filter data by the defaut level, and also by the default demoType,
+        // and also sort it by the value of the default demographic
+        const filteredData = dataset.filter(d => d.level === selectedLevel)
+            .filter(d => d.demo_type === selectedDemoType)
+            .sort((a, b) => b['total_value'] - a['total_value']);
+
+        console.log(filteredData);
+
+        // Use this to get the sub-categories for the demoType
+        var selectedDemoCategories = new Set(filteredData.map(d => d.demo_category))
+
+        // Update the yScale
+        yScale.domain([0, d3.max(filteredData, function(d) { return d.demo_value; })+10]);
+        // Update the yAxis and yAxisGrid
+        var yAxis = d3.axisLeft(yScale)
+            .tickFormat(d => d + " %");
+        var yAxisGrid = d3.axisLeft(yScale).tickSize(-width)
+            .tickFormat('')
+            .ticks(10);
+        // Re-draw the yAxis and yAxisGrid
+        boxPlot.selectAll("g .yAxis")
+            .call(yAxis)
+        boxPlot.selectAll("g .yaxis-grid")
+            .call(yAxisGrid);
+
+        // Update the xScale
+        xScale.domain(filteredData.map(d => d.country));
+        // Update the xAxis
+        var xAxis = d3.axisBottom(xScale)
+        // Re-draw the xAxis
+        boxPlot.selectAll("g .xAxis")
+            .call(xAxis)
+
+        // Update xzScale and zScale for the bars and their colours
+        xzScale.domain(filteredData.map(d => d.demo_category)) 
+            .range([0, xScale.bandwidth()]) // set range
+        zScale.domain(filteredData.map(d => d.demo_category)) // 
+        .range(chooseColours(selectedDemoType)); //
+
+        // Update the barplot woohoo!
         barplot.data(filteredData)
         .join("rect")
-        .attr("x", d => x(d.country))
-        .attr("y", d => y(d.total))
-        .attr("width", x.bandwidth())
-        .attr("height", d => height - y(d.total))
-        //.attr("fill", 'dodgerblue');
-        .attr("fill", function(d){ return levelColour(defaultLevel) })
-        // Animation: show no bars at the start
-        .attr("height", function(d) { return height - y(0); }) // always equal to 0
-        .attr("y", function(d) { return y(0); })
-        .on("mouseover",function(){
-                  d3.select(this)
-              .attr("fill","red")
-                }) 	
-        .on("mouseout",function(){
-                  d3.select(this)
-                  .attr("fill", function(d){ return levelColour(selectedLevel) })
-                }) 
-        .on("click", function() {
-           		sortBars();
-            });
+            .attr("x", d => xScale(d.country) + xzScale(d.demo_category))
+            .attr("y", d => yScale(d.demo_value))
+            .attr("width", xzScale.bandwidth())
+            .attr("height", d => height - yScale(d.demo_value))
+            .attr("fill", d => zScale(d.demo_category))
+            // Animation: show no bars at the start
+            .attr("height", function() { return height - yScale(0); }) // always equal to 0
+            .attr("y", function() { return yScale(0); });
 
         // Animation
         boxPlot.selectAll("rect")
         .transition()
         .duration(400)
-        .attr("y", function(d) { return y(d.total); })
-        .attr("height", function(d) { return height - y(d.total); })
+        .attr("y", function(d) { return yScale(d.demo_value); })
+        .attr("height", function(d) { return height - yScale(d.demo_value); });
 
     }
+    
+    // ****************************************************************************************
+    // UPDATE FUNCTION CALLS
+    // ****************************************************************************************
 
     // Call to update visualization when button changes
     d3.select("#selectLevel").on("change", function(event,d) {
         // recover the option that has been chosen
-        const selectedLevel = d3.select(this).property("value")
+        selectedLevel = d3.select(this).property("value")
         // run the update function with this selected option
-        update(selectedLevel)
+        update(selectedLevel, selectedDemoType)
     })
 
-    // Add a title woohoo!
-    boxPlot.append("text")
-    .attr("x", (width / 2))             
-    .attr("y", 0 - (margin.top / 2))
-    .attr("text-anchor", "middle")  
-    .style("font-size", "14px") 
-    .style("text-decoration", "underline")  
-    .text("South-East Asian Countries, Ranked by Percentage of Dropouts");
+    // Call to update visualization when button changes
+    d3.select("#selectDemoType").on("change", function(event,d) {
+        // recover the option that has been chosen
+        selectedDemoType = d3.select(this).property("value")
+        // run the update function with this selected option
+        update(selectedLevel, selectedDemoType)
+    })
 
 
 })
