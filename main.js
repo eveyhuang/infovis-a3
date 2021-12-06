@@ -10,13 +10,13 @@ let countries = {"SA": ["Afghanistan", "Bangladesh", "Bhutan", "India", "Maldive
 let attributes = ["region", "level"];
 let region = "SA";
 let mapdata, dataset;
-
+let data = new Map();
 // color scale for map filling
 var colorScale = d3.scaleSequential().domain([0, 100])
 .interpolator(d3.interpolateBlues);
 
 // append svg for map
-const map = d3.select("#mapViz")
+var map = d3.select("#mapViz")
 // propjection is set to work with ECA region
 const projection = d3.geoMercator()
     .center([70, 27])                // GPS of location to zoom on
@@ -28,7 +28,7 @@ const path = d3.geoPath(projection);
 const g = map.append('g');
 
 // legend for map
-var legend_x = width - 100
+var legend_x = width - 50
 var legend_y = height + 60
     
 map.append("g")
@@ -51,7 +51,7 @@ tooltip = d3.select("body").append("div")
 .style("opacity", 0);
 
 // Append svg for barplot 
-const barPlotSVG = d3.select("#sortedBarplot")
+var barPlotSVG = d3.select("#sortedBarplot")
 .append("svg")
     .attr("width", width + 300)
     .attr("height", height + margin.top + margin.bottom)
@@ -107,10 +107,12 @@ Promise.all([
 
     // Filter barplot data by the defaut level, and also by the default demoType,
     // and also sort it by the value of the default demographic
-    const filteredData = dataset.filter(d => d.level === selectedLevel)
+    var filteredData = dataset.filter(d => d.level === selectedLevel)
         .filter(d => d.demo_type === selectedDemoType)
         .sort((a, b) => b['total_value'] - a['total_value']);
 
+    filteredData.forEach(d => data.set(d.country_id, d.total_value));
+    
     // ****************************************************************************************
     // MAP MOUSEOVER AND DRAWING
     // ****************************************************************************************
@@ -127,7 +129,7 @@ Promise.all([
         tooltip.transition()
             .duration(200)
             .style("opacity", 1);
-        tooltip.html("<b>" + d.properties.name + "</b>: " + "Total out of School Rates for Upper Secondary Schooling Level is " + data.get(d.id) + " % <br>" )
+        tooltip.html("<b>" + d.properties.name + "</b>: " + "Total out of School Rates is " + data.get(d.id) + " % <br>" )
             .style("left", (event.pageX + 5) + "px")
             .style("top", (event.pageY - 28) + "px");
     }
@@ -144,6 +146,8 @@ Promise.all([
         .style("opacity", 0);
     }
 
+    
+
     // Draw the map
     map.append("g")
         .selectAll("path")
@@ -156,23 +160,24 @@ Promise.all([
         // set the color of each country
         .attr("fill", function (d) {
             // fill the country with total out of school
-            let row = filteredData.filter(data => data.country_id === d.id);
-            d.total_value = row[0].total_value|| 0; // HI EVEY I CHANGED THIS VARIABLE NAME
-            return colorScale(d.total_value); // DON'T CHANGE IT THIS IS NOT A BUG, THIS IS WORKING AS INTENDED
+            return colorScale(data.get(d.id)); 
         })
+        .style("opacity", .7)
         .on("mouseover", mouseOver)
         .on("mouseleave", mouseLeave);
     
+    
+    // add name for each country on map
     map.selectAll("text")
         .data(mapdata.features)
         .enter().append("text")
-        .text(function(d) {
-            console.log(d.properties.name);
+        .text(function (d) {
             return d.properties.name;
         })
         .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
         .attr("dy", ".35em")
-        .style("font-size", "11px")
+        .style("font-size", "11px")    
+    
 
 
     // ****************************************************************************************
@@ -311,7 +316,7 @@ Promise.all([
     // ****************************************************************************************
 
     // Make the bars with the default school level + demographic to start with
-    const barPlot = barPlotSVG.selectAll("rect")
+    barPlot = barPlotSVG.selectAll("rect")
         .data(filteredData) 
         .join("rect")
             .attr("x", d => xScale(d.country) + xzScale(d.demo_category))
@@ -348,8 +353,8 @@ Promise.all([
             .filter(d => d.demo_type === selectedDemoType)
             .sort((a, b) => b['total_value'] - a['total_value']);
 
-        console.log(filteredData);
-
+        filteredData.forEach(d => data.set(d.country_id, d.total_value));
+    
         // Use this to get the sub-categories for the demoType
         var selectedDemoCategories = new Set(filteredData.map(d => d.demo_category))
 
@@ -382,6 +387,7 @@ Promise.all([
         .range(chooseColours(selectedDemoType)); //
 
         // Update the barplot woohoo!
+        
         barPlot.data(filteredData)
         .join("rect")
             .attr("x", d => xScale(d.country) + xzScale(d.demo_category))
@@ -418,6 +424,7 @@ Promise.all([
     d3.select("#selectDemoType").on("change", function(event,d) {
         // recover the option that has been chosen
         selectedDemoType = d3.select(this).property("value")
+        
         // run the update function with this selected option
         update(selectedLevel, selectedDemoType)
     })
