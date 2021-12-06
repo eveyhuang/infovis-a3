@@ -320,6 +320,30 @@ Promise.all([
     .range(chooseColours(selectedDemoType)); //
     //.range(d3.schemeSet2); // set the range of colours
     
+    // mouseover for barplot
+    let barMouseOver = function(event, d, i) {
+        d3.select(this)
+            .transition()
+            .duration(200)
+            .style("opacity", 1)
+            .style("stroke", "black");
+        tooltip.transition()
+            .duration(200)
+            .style("opacity", 1);
+        tooltip.html("<b>" + d.country + "</b>: " + "Out of School Rates for "+ d.demo_category + " in "+ selectedLevel +" is " + d.total_value + " % <br>" )
+            .style("left", (event.pageX + 5) + "px")
+            .style("top", (event.pageY - 28) + "px");
+    }
+
+    // //mouseleave for barplot
+    let barMouseLeave = function(d) {
+        d3.select(this)
+        .transition()
+        .duration(200)
+        .style("stroke", "transparent")
+        tooltip.transition()
+        .style("opacity", 0);
+    }
     // ****************************************************************************************
     // MAKING THE BARS
     // ****************************************************************************************
@@ -335,7 +359,9 @@ Promise.all([
             .attr("fill", d => zScale(d.demo_category))
             // Animation: show no bars at the start
             .attr("height", function() { return height - yScale(0); }) // always equal to 0
-            .attr("y", function() { return yScale(0); });
+            .attr("y", function() { return yScale(0); })
+            .on("mouseover", barMouseOver)
+            .on("mouseleave", barMouseLeave);
 
 
     // Animation
@@ -363,7 +389,7 @@ Promise.all([
             .sort((a, b) => b['total_value'] - a['total_value']);
 
         filteredData.forEach(d => data.set(d.country_id, d.total_value));
-        console.log(data)
+        // console.log(data)
         // Use this to get the sub-categories for the demoType
         var selectedDemoCategories = new Set(filteredData.map(d => d.demo_category))
 
@@ -406,7 +432,9 @@ Promise.all([
             .attr("fill", d => zScale(d.demo_category))
             // Animation: show no bars at the start
             .attr("height", function() { return height - yScale(0); }) // always equal to 0
-            .attr("y", function() { return yScale(0); });
+            .attr("y", function() { return yScale(0); })
+            .on("mouseover", barMouseOver)
+            .on("mouseleave", barMouseLeave);
 
         // Animation
         barPlotSVG.selectAll("rect")
