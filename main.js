@@ -51,12 +51,12 @@ tooltip = d3.select("body").append("div")
 .style("opacity", 0);
 
 // Append svg for barplot 
-const boxPlot = d3.select("#sortedBarplot")
+const barPlotSVG = d3.select("#sortedBarplot")
 .append("svg")
-  .attr("width", width + 300)
-  .attr("height", height + margin.top + margin.bottom)
+    .attr("width", width + 300)
+    .attr("height", height + margin.top + margin.bottom)
 .append("g")
-  .attr("transform", `translate(${margin.left},${margin.top})`);
+    .attr("transform", `translate(${margin.left},${margin.top})`);
 
 
 // Some global variables for the barplot - default level and demographic type
@@ -105,7 +105,7 @@ Promise.all([
     // dataset is the csv file for out of school rates; column names are defined  in line 74-81
     dataset = loadData[1];
 
-    // Filter data by the defaut level, and also by the default demoType,
+    // Filter barplot data by the defaut level, and also by the default demoType,
     // and also sort it by the value of the default demographic
     const filteredData = dataset.filter(d => d.level === selectedLevel)
         .filter(d => d.demo_type === selectedDemoType)
@@ -117,7 +117,7 @@ Promise.all([
 
     // mouseover for map
     let mouseOver = function(event, d, i) {
-        selectedCountry =d.properties.name;
+        selectedCountry = d.properties.name;
         console.log("selecting: ", selectedCountry);
         d3.select(this)
             .transition()
@@ -217,7 +217,7 @@ Promise.all([
     // const Z = d3.map(filteredData, d => d.demo_category);
 
     // Add a title woohoo!
-    boxPlot.append("text")
+    barPlotSVG.append("text")
         .attr("x", (width / 2))             
         .attr("y", 0 - (margin.top / 2))
         .attr("text-anchor", "middle")  
@@ -238,7 +238,7 @@ Promise.all([
     var xAxis = d3.axisBottom(xScale);
 
     // Add X-axis to the svg
-    boxPlot.append("g")
+    barPlotSVG.append("g")
         .attr("class", "xAxis")
         .attr("transform", `translate(0, ${height})`)
         .call(xAxis)
@@ -248,7 +248,7 @@ Promise.all([
             .attr("font-size","11px"); // font size
 
     // Add X-label
-    boxPlot.append("text")
+    barPlotSVG.append("text")
         .attr("class", "xlabel")
         .attr("text-anchor", "end")
         .attr("x", (width + margin.left + margin.right)/2) // Position x-label
@@ -271,14 +271,14 @@ Promise.all([
         .tickFormat('').ticks(10);
 
     // Add Y-axis to the svg
-    boxPlot.append("g") 
+    barPlotSVG.append("g") 
         .attr("class", "yAxis")
         .call(yAxis)
         .selectAll("text")
             .attr("font-size","11px"); // font size
 
     // Add y-label
-    boxPlot.append("text")
+    barPlotSVG.append("text")
         .attr("class", "ylabel")
         .attr("text-anchor", "end")
         .attr("y", -margin.left/1.3) // **SEE HERE**: mind these if you change the margins or width/height
@@ -287,7 +287,7 @@ Promise.all([
         .text("Out of School Rate (% of population)"); // Label
 
     // Add the Y gridlines
-    boxPlot.append('g')
+    barPlotSVG.append('g')
         .attr('class', 'yaxis-grid')
         .call(yAxisGrid);
 
@@ -311,7 +311,7 @@ Promise.all([
     // ****************************************************************************************
 
     // Make the bars with the default school level + demographic to start with
-    const barplot = boxPlot.selectAll("rect")
+    const barPlot = barPlotSVG.selectAll("rect")
         .data(filteredData) 
         .join("rect")
             .attr("x", d => xScale(d.country) + xzScale(d.demo_category))
@@ -325,7 +325,7 @@ Promise.all([
 
 
     // Animation
-    boxPlot.selectAll("rect")
+    barPlotSVG.selectAll("rect")
         .transition()
         .duration(400)
         .attr("y", function(d) { return yScale(d.demo_value); })
@@ -340,7 +340,7 @@ Promise.all([
     function update(selectedLevel, selectedDemoType) {
 
         // Remove the old bars
-        boxPlot.selectAll("rect").remove(); 
+        barPlotSVG.selectAll("rect").remove(); 
 
         // Filter data by the defaut level, and also by the default demoType,
         // and also sort it by the value of the default demographic
@@ -362,9 +362,9 @@ Promise.all([
             .tickFormat('')
             .ticks(10);
         // Re-draw the yAxis and yAxisGrid
-        boxPlot.selectAll("g .yAxis")
+        barPlotSVG.selectAll("g .yAxis")
             .call(yAxis)
-        boxPlot.selectAll("g .yaxis-grid")
+        barPlotSVG.selectAll("g .yaxis-grid")
             .call(yAxisGrid);
 
         // Update the xScale
@@ -372,7 +372,7 @@ Promise.all([
         // Update the xAxis
         var xAxis = d3.axisBottom(xScale)
         // Re-draw the xAxis
-        boxPlot.selectAll("g .xAxis")
+        barPlotSVG.selectAll("g .xAxis")
             .call(xAxis)
 
         // Update xzScale and zScale for the bars and their colours
@@ -382,7 +382,7 @@ Promise.all([
         .range(chooseColours(selectedDemoType)); //
 
         // Update the barplot woohoo!
-        barplot.data(filteredData)
+        barPlot.data(filteredData)
         .join("rect")
             .attr("x", d => xScale(d.country) + xzScale(d.demo_category))
             .attr("y", d => yScale(d.demo_value))
@@ -394,7 +394,7 @@ Promise.all([
             .attr("y", function() { return yScale(0); });
 
         // Animation
-        boxPlot.selectAll("rect")
+        barPlotSVG.selectAll("rect")
         .transition()
         .duration(400)
         .attr("y", function(d) { return yScale(d.demo_value); })
